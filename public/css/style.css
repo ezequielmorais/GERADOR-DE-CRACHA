@@ -1,0 +1,384 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.background-shapes img {
+    position: absolute;
+    opacity: 0.8;
+}
+
+.background-shapes .shape1 {
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: auto;
+    width: 300px;
+}
+
+.background-shapes .shape2 {
+    bottom: 15%;
+    left: 10%;
+    width: 380px;
+}
+
+.background-shapes .shape3 {
+    bottom: 30%;
+    left: 70%;
+    transform: translateX(-50%);
+    width: 450px;
+}
+
+.background-shapes .shape4 {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100px;
+    position: absolute;
+}
+
+.login-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+    z-index: 1;
+    position: relative;
+    left: -300px;
+}
+
+.login-card {
+    top: -50px;
+    left: -300px;
+    position: relative;
+}
+
+.logo {
+    margin: 0;
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.welcome {
+    margin: 10px 0 20px;
+    font-size: 16px;
+    color: #666;
+    font-family: "Poetsen One", sans-serif;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+label {
+    font-size: 14px;
+    color: #333;
+}
+
+input {
+    width: 300px;
+    padding: 8px;
+    padding-right: 40px;
+    margin-top: 5px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 2px solid #0066cc;
+}
+
+.icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    cursor: pointer;
+}
+
+.icon:hover {
+    color: #0066cc;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #003366;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 50px;
+}
+
+.btn:hover {
+    background-color: #0055aa;
+}
+
+@media screen and (max-width: 1152px) and (max-height: 864px) {
+    .background-shapes .shape2 {
+        display: none;
+    }
+    .background-shapes .shape1 {
+        width: 250px;
+    }
+
+    .background-shapes .shape2 {
+        width: 150px;
+        margin-left: -90px;
+        bottom: 15%;
+    }
+
+    .background-shapes .shape3 {
+        width: 350px;
+    }
+
+    .background-shapes .shape4 {
+        width: 100%;
+        height: 70px;
+    }
+
+    .login-card {
+        margin-left: 100px;
+        width: 250px;
+    }
+
+    .btn {
+        width: 100px;
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    input {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 1600px) and (max-height: 900px) {
+    .background-shapes .shape1 {
+        width: 300px;
+        bottom: 20%;
+    }
+
+    .background-shapes .shape2 {
+        width: 200px;
+        bottom: 20%;
+        margin-left: 120px;
+    }
+
+    .background-shapes .shape3 {
+        width: 350px;
+    }
+
+    .background-shapes .shape4 {
+        width: 100%;
+    }
+
+    .login-card {
+        margin-left: 150px;
+        width: 280px;
+    }
+
+    .btn {
+        width: 100%;
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    input {
+        width: 220px;
+    }
+}
+
+@media screen and (max-width: 430px) and (max-height: 932px) {
+    .background-shapes .shape1,
+    .background-shapes .shape2,
+    .background-shapes .shape3 {
+        display: none;
+    }
+
+    .background-shapes .shape4 {
+        width: 100%;
+    }
+
+    .login-card .logo {
+        width: 120px;
+    }
+
+    .login-card {
+        width: 250px;
+        left: 5px;
+    }
+
+    input {
+        width: 200px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 360px) and (max-height: 740px) {
+    .background-shapes .shape1,
+    .background-shapes .shape2,
+    .background-shapes .shape3 {
+        display: none;
+    }
+
+    .background-shapes .shape4 {
+        width: 100%;
+    }
+
+    .login-card .logo {
+        width: 120px;
+    }
+
+    .login-card {
+        width: 250px;
+        left: -75px;
+    }
+
+    input {
+        width: 200px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 375px) and (max-height: 812px) {
+    .background-shapes .shape1,
+    .background-shapes .shape2,
+    .background-shapes .shape3 {
+        display: none;
+    }
+
+    .background-shapes .shape4 {
+        width: 100%;
+    }
+
+    .login-card .logo {
+        width: 120px;
+    }
+
+    .login-card {
+        width: 250px;
+        left: -70px;
+    }
+
+    input {
+        width: 200px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 414px) and (max-height: 896px) {
+    .background-shapes .shape1,
+    .background-shapes .shape2,
+    .background-shapes .shape3 {
+        display: none;
+    }
+
+    .background-shapes .shape4 {
+        width: 100%;
+    }
+
+    .login-card .logo {
+        width: 120px;
+    }
+
+    .login-card {
+        width: 250px;
+        left: -75px;
+    }
+
+    input {
+        width: 200px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1024px) and (max-height: 1366px) {
+    .background-shapes .shape1 {
+        width: 200px;
+        bottom: 20%;
+        margin-left: -10px;
+    }
+
+    .background-shapes .shape2 {
+        width: 200px;
+        bottom: 30%;
+        margin-left: -10px;
+    }
+
+    .background-shapes .shape3 {
+        width: 350px;
+        margin-left: 100px;
+        bottom: 40%;
+    }
+
+    .background-shapes .shape4 {
+        width: 100%;
+    }
+
+    .login-card .logo {
+        width: 120px;
+    }
+
+    .login-card {
+        width: 250px;
+        left: -85px;
+    }
+
+    input {
+        width: 200px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
