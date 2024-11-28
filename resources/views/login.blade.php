@@ -22,15 +22,16 @@
     <div class="login-card">
       <img class="logo" src="img/logo-sistemafibra2024.png" alt="Logo">
       <p class="welcome">Bem vindo</p>
-      <form>
+      <form action="/welcome" method="POST">
+      @csrf
         <div class="input-group">
           <label for="username">Usuário</label>
-          <input type="text" id="username" placeholder="Raimundo.Mendonça">
+          <input type="text" id="username" name="nome">
           <i class="fas fa-user icon"></i>
         </div>
         <div class="input-group">
           <label for="password">Senha</label>
-          <input type="password" id="password" placeholder="senha de acesso">
+          <input type="password" id="password" placeholder="senha de acesso" name="senha">
           <i class="fas fa-eye icon" id="togglePassword"></i>
         </div>
         <button type="submit" class="btn">ENTRAR</button>
