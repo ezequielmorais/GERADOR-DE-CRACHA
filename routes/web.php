@@ -22,3 +22,4 @@ Route::get('/login', function () {
     return view('login');
 });
 Route::POST('/welcome', [AutenticaADController::class, 'validaUsuarioADApp']);
+Route::get('/welcome', [AutenticaADController::class, 'index']);
