@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutenticaADController;
+use App\Http\Controllers\CrachaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,4 @@ Route::get('/login', function () {
 });
 Route::POST('/welcome', [AutenticaADController::class, 'validaUsuarioADApp']);
 Route::get('/welcome', [AutenticaADController::class, 'index']);
-Route::post('/logout', [App\Http\Controllers\AutenticaADController::class, 'logout'])->name('logout');
+Route::POST('/cracha', [CrachaController::class, 'gerarPdf'])->name('gerar.pdf');
