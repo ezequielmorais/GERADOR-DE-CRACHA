@@ -24,7 +24,7 @@
 <style>
   body {
     margin: 0;
-
+    padding: 0;
   }
 
   .header {
@@ -53,23 +53,22 @@
   .logout-container {
     display: flex;
     flex-direction: column;
-
     align-items: center;
 
   }
 
   .logout-container button {
     margin-top: 5px;
-    /* Reduz a margem superior */
+
   }
 
 
   .logout-container img {
     width: 50px;
     height: auto;
-    margin-bottom: -10px;
+    margin-bottom: -11px;
     margin-left: -300px;
-    /* Move o botão para a esquerda */
+    margin-top: 10px;
   }
 
 
