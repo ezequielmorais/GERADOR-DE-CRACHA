@@ -2,139 +2,7 @@
 @section('title', 'welcome')
 @section('Conteudo')
 
-<link rel="stylesheet" href="{{ asset('css/app.css') }}">
-<style>
-    .drop-area {
-        width: 70px;
-        height: 90px;
-        border: 2px solid black;
-        border-radius: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #1c56a8;
-        font-size: 5px;
-        cursor: pointer;
-        text-align: center;
-        position: relative;
-        margin-top: 20px;
-    }
-
-    .drop-area,
-    .image-preview {
-        margin-top: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 80px;
-        border: 2px solid #245ca8;
-        height: 100px;
-    }
-
-    .drop-area.dragover {
-        background-color: #f0f8f0;
-    }
-
-    .drop-area img {
-        max-width: 100%;
-        max-height: 100%;
-        border-radius: 8px;
-    }
-
-    .image-preview {
-        display: none;
-        margin-top: 20px;
-        text-align: center;
-    }
-
-    .form-container {
-        margin-top: 20px;
-        text-align: center;
-        display: none;
-    }
-
-    .centralizar-imagem {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 205px;
-    }
-
-    .card-container {
-        width: 400px;
-        margin: 20px auto;
-        border: 1px solid #ddd;
-        border-radius: 0px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        background-color: transparent;
-    }
-
-    .card-header {
-        padding: 0px;
-        background-color: transparent;
-        color: white;
-        font-size: 14px;
-        text-align: center;
-    }
-
-    .card-body {
-        padding: 20px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .card-body img {
-        max-width: 100%;
-        border-radius: 0px;
-    }
-
-    .usuario {
-        color: #1c56a8;
-        font-weight: 500;
-        font-family: 'inter', Courier, monospace;
-        padding: 5px;
-        margin-bottom: 0px;
-        font-size: 12px;
-    }
-
-    .cargo {
-        font-family: 'inter', Courier, monospace;
-        margin-top: 0px;
-        font-size: 10px;
-    }
-
-    .footer-img {
-        width: 205px;
-        height: 36px;
-    }
-
-    /* Estilo para empilhar os crachás */
-    .crachas-container {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        /* Espaço entre os crachás */
-        align-items: center;
-    }
-
-    .titulo {
-        font-size: 16px;
-        font-weight: bold;
-        color: #1c56a8;
-        margin-bottom: -30px;
-        /* Ajuste essa margem conforme necessário */
-    }
-
-    /* Nova classe para aumentar a margem do preview da imagem */
-    .preview-image-second-cracha {
-        margin-top: 20px;
-        /* Ajuste conforme necessário */
-    }
-</style>
+<link rel="stylesheet" href="{{ asset('css/cracha.css') }}">
 
 <body>
 
@@ -142,10 +10,11 @@
         <!-- Crachá 1 -->
         <div class="card-container">
             <div class="card-header">
-                <!-- Aqui você pode adicionar título ou outros elementos se necessário -->
+
             </div>
-            <div class="card-body">
+            <div class="card-body" style="position: relative;">
                 <img src="img/cracha-frente-barra1.png" alt="Imagem do Cracha" class="centralizar-imagem">
+
                 <div class="drop-area" id="drop-area">
                     <img id="preview-image" src="img/upload.png" alt="Pré-visualização">
                 </div>
@@ -166,7 +35,11 @@
                 <p class="cargo">Estágiario</p>
 
                 <img class="footer-img" src="img/footer-img1.png" alt="footer">
+
+                <!-- Tag Matricula que ficará sobre a imagem -->
+                <p class="matricula">Matrícula <span class="cod-matricula">44444</span></p>
             </div>
+
             <!-- cracha2 -->
             <div class="card-header">
                 <!-- Aqui você pode adicionar título ou outros elementos se necessário -->
@@ -174,12 +47,12 @@
             <div class="card-body">
                 <img src="img/rodape.png" alt="Imagem do Cracha" class="centralizar-imagem">
                 <p class="titulo">Presença</p>
-                <div class="drop-area" id="drop-area">
-                    <img id="preview-image" src="img/upload.png" alt="Pré-visualização">
+                <div class="drop-area1" id="drop-area">
+                    <img id="preview-image" src="" alt="Pré-visualização">
                 </div>
 
                 <div class="image-preview" id="image-preview">
-                    <img id="preview-image" src="img/upload.png" alt="Pré-visualização">
+                    <img id="preview-image" src="" alt="Pré-visualização">
                     <img id="preview-image" src="" alt="Pré-visualização">
                 </div>
 
@@ -192,7 +65,7 @@
                 </div>
 
 
-                <img class="footer-img" src="img/cracha-rodape-costas.png" alt="footer">
+                <img class="footer-img1" src="img/cracha-rodape-costas.png" alt="footer">
             </div>
         </div>
     </div>
