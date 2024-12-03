@@ -16,12 +16,20 @@
                 <img src="img/cracha-frente-barra1.png" alt="Imagem do Cracha" class="centralizar-imagem">
 
                 <div class="drop-area" id="drop-area">
-                    <img id="preview-image" src="img/upload.png" alt="Pré-visualização">
+                    <!-- Exibe a imagem enviada, se houver -->
+                    @if($imagePath)
+                        <img id="preview-image" src="{{ asset($imagePath) }}" alt="Imagem carregada">
+                    @else
+                        <img id="preview-image" src="img/upload.png" alt="Pré-visualização">
+                    @endif
                 </div>
 
                 <div class="image-preview" id="image-preview">
-                    <img id="preview-image" src="img/upload.png" alt="Pré-visualização">
-                    <img id="preview-image" src="" alt="Pré-visualização">
+                    @if($imagePath)
+                        <img id="preview-image" src="{{ asset($imagePath) }}" alt="Imagem carregada">
+                    @else
+                        <img id="preview-image" src="img/upload.png" alt="Pré-visualização">
+                    @endif
                 </div>
 
                 <div class="form-container" id="form-container">
@@ -31,13 +39,13 @@
                         <button type="submit" class="btn btn-primary">Enviar Imagem</button>
                     </form>
                 </div>
-                <p class="usuario">Raimundo Mendonça</p>
-                <p class="cargo">Estágiario</p>
+                <p class="usuario">{{ $nome }}</p>
+                <p class="cargo">{{ $cargo }}</p>
 
                 <img class="footer-img" src="img/footer-img1.png" alt="footer">
 
                 <!-- Tag Matricula que ficará sobre a imagem -->
-                <p class="matricula">Matrícula <span class="cod-matricula">44444</span></p>
+                <p class="matricula">Matrícula <span class="cod-matricula">{{ $matricula }}</span></p>
             </div>
 
             <!-- cracha2 -->
@@ -48,12 +56,11 @@
                 <img src="img/rodape.png" alt="Imagem do Cracha" class="centralizar-imagem">
                 <p class="titulo">Presença</p>
                 <div class="drop-area1" id="drop-area">
-                    <img id="preview-image" src="" alt="Pré-visualização">
+                    <img id="preview-image" src="{{ $qrcodeUrl }}" alt="QR Code">
                 </div>
 
                 <div class="image-preview" id="image-preview">
-                    <img id="preview-image" src="" alt="Pré-visualização">
-                    <img id="preview-image" src="" alt="Pré-visualização">
+                    <img id="preview-image" src="{{ $qrcodeUrl }}" alt="QR Code">
                 </div>
 
                 <div class="form-container" id="form-container">
@@ -64,83 +71,82 @@
                     </form>
                 </div>
 
-
                 <img class="footer-img1" src="img/cracha-rodape-costas.png" alt="footer">
             </div>
         </div>
     </div>
 
-    < </div>
+</body>
 
-        <script>
-            const dropArea = document.getElementById("drop-area");
-            const dropText = document.getElementById("drop-text");
-            const previewImage = document.getElementById("preview-image");
-            const imagePreview = document.getElementById("image-preview");
-            const formContainer = document.getElementById("form-container");
-            const imageDataInput = document.getElementById("image_data");
+<script>
+    const dropArea = document.getElementById("drop-area");
+    const dropText = document.getElementById("drop-text");
+    const previewImage = document.getElementById("preview-image");
+    const imagePreview = document.getElementById("image-preview");
+    const formContainer = document.getElementById("form-container");
+    const imageDataInput = document.getElementById("image_data");
 
-            // Impede o comportamento padrão de dragover para permitir o drop
-            dropArea.addEventListener("dragover", (e) => {
-                e.preventDefault();
-                dropArea.classList.add("dragover");
-            });
+    // Impede o comportamento padrão de dragover para permitir o drop
+    dropArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropArea.classList.add("dragover");
+    });
 
-            dropArea.addEventListener("dragleave", () => {
-                dropArea.classList.remove("dragover");
-            });
+    dropArea.addEventListener("dragleave", () => {
+        dropArea.classList.remove("dragover");
+    });
 
-            dropArea.addEventListener("drop", (e) => {
-                e.preventDefault();
-                dropArea.classList.remove("dragover");
+    dropArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropArea.classList.remove("dragover");
 
-                const file = e.dataTransfer.files[0];
-                if (file && file.type.startsWith("image/")) {
-                    showImagePreview(file);
-                } else {
-                    alert("Por favor, arraste uma imagem válida.");
-                }
-            });
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith("image/")) {
+            showImagePreview(file);
+        } else {
+            alert("Por favor, arraste uma imagem válida.");
+        }
+    });
 
-            // Permitir seleção de arquivo ao clicar na área de arrastar
-            dropArea.addEventListener("click", () => {
-                const fileInput = document.createElement("input");
-                fileInput.type = "file";
-                fileInput.accept = "image/*";
-                fileInput.onchange = (e) => {
-                    const file = e.target.files[0];
-                    if (file && file.type.startsWith("image/")) {
-                        showImagePreview(file);
-                    } else {
-                        alert("Por favor, selecione uma imagem válida.");
-                    }
-                };
-                fileInput.click();
-            });
-
-            // Função para mostrar a pré-visualização da imagem
-            function showImagePreview(file) {
-                const reader = new FileReader();
-                reader.onload = () => {
-                    // Substitui o texto da área de arrasto pela imagem
-                    dropText.style.display = "none";
-                    const imgElement = document.createElement("img");
-                    imgElement.src = reader.result;
-                    dropArea.innerHTML = ''; // Limpa o conteúdo da área
-                    dropArea.appendChild(imgElement); // Adiciona a imagem à área
-
-                    // Exibe a pré-visualização abaixo da área
-                    previewImage.src = reader.result;
-                    imagePreview.style.display = "block";
-
-                    // Envia a imagem no FormData
-                    imageDataInput.value = reader.result; // Armazena o Data URL da imagem no campo hidden
-
-                    // Exibe o formulário
-                    formContainer.style.display = "block";
-                };
-                reader.readAsDataURL(file);
+    // Permitir seleção de arquivo ao clicar na área de arrastar
+    dropArea.addEventListener("click", () => {
+        const fileInput = document.createElement("input");
+        fileInput.type = "file";
+        fileInput.accept = "image/*";
+        fileInput.onchange = (e) => {
+            const file = e.target.files[0];
+            if (file && file.type.startsWith("image/")) {
+                showImagePreview(file);
+            } else {
+                alert("Por favor, selecione uma imagem válida.");
             }
-        </script>
+        };
+        fileInput.click();
+    });
 
-        @endsection
+    // Função para mostrar a pré-visualização da imagem
+    function showImagePreview(file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            // Substitui o texto da área de arrasto pela imagem
+            dropText.style.display = "none";
+            const imgElement = document.createElement("img");
+            imgElement.src = reader.result;
+            dropArea.innerHTML = ''; // Limpa o conteúdo da área
+            dropArea.appendChild(imgElement); // Adiciona a imagem à área
+
+            // Exibe a pré-visualização abaixo da área
+            previewImage.src = reader.result;
+            imagePreview.style.display = "block";
+
+            // Envia a imagem no FormData
+            imageDataInput.value = reader.result; // Armazena o Data URL da imagem no campo hidden
+
+            // Exibe o formulário
+            formContainer.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+    }
+</script>
+
+@endsection
