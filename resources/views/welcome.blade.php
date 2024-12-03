@@ -6,7 +6,7 @@
 <h2>Gerar QR Code e Imprimir PDF</h2>
 
 <div class="form-container">
-    <form id="form" action="{{ route('gerar.pdf') }}" method="POST">
+    <form id="form" action="{{ route('gerar.pdf') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <!-- Campos do formulário -->
         <label for="nome">Nome:</label>
@@ -21,15 +21,11 @@
         <label for="casa">Casa:</label>
         <input type="text" name="casa" id="casa" required><br><br>
 
-        <!-- Área de arrastar e soltar -->
-        <div class="drop-area" id="drop-area">
-            <span id="drop-text">Arraste e solte a imagem aqui ou clique para fazer upload</span>
-        </div>
-        <img id="preview-image" alt="Pré-visualização da Imagem" style="display: none; margin-top: 10px;">
 
         <!-- Input de arquivo escondido -->
-        <input type="file" id="file-input" accept="image/*" style="display: none;">
+        <input type="file" name="image" accept="image/*">
 
+    
         <!-- Botões -->
         <div style="margin-top: 20px;">
             <button type="button" id="generate-qrcode">Gerar QR Code</button>
@@ -45,73 +41,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const dropArea = document.getElementById("drop-area");
-        const dropText = document.getElementById("drop-text");
-        const fileInput = document.getElementById("file-input");
-        const previewImage = document.createElement("img");
-        previewImage.id = "preview-image";
-        previewImage.style.display = "none";
-        previewImage.style.marginTop = "10px";
-
-        const imageDataInput = document.createElement("input");
-        imageDataInput.type = "hidden";
-        imageDataInput.name = "image_base64";
-
-        // Adicionar campo oculto ao formulário
-        document.getElementById("form").appendChild(imageDataInput);
-
-        // Evento de clique para abrir o seletor de arquivos
-        dropArea.addEventListener("click", () => {
-            fileInput.click();
-        });
-
-        // Evento para processar a seleção de arquivo via clique
-        fileInput.addEventListener("change", () => {
-            const file = fileInput.files[0];
-            if (file && file.type.startsWith("image/")) {
-                showImagePreview(file);
-            } else {
-                alert("Por favor, selecione uma imagem válida.");
-            }
-        });
-
-        // Eventos de drag-and-drop
-        dropArea.addEventListener("dragover", (e) => {
-            e.preventDefault();
-            dropArea.classList.add("dragover");
-        });
-
-        dropArea.addEventListener("dragleave", () => {
-            dropArea.classList.remove("dragover");
-        });
-
-        dropArea.addEventListener("drop", (e) => {
-            e.preventDefault();
-            dropArea.classList.remove("dragover");
-
-            const file = e.dataTransfer.files[0];
-            if (file && file.type.startsWith("image/")) {
-                showImagePreview(file);
-            } else {
-                alert("Por favor, arraste uma imagem válida.");
-            }
-        });
-
-        // Função para mostrar a pré-visualização da imagem
-        function showImagePreview(file) {
-            const reader = new FileReader();
-            reader.onload = () => {
-                // Atualiza pré-visualização
-                previewImage.src = reader.result;
-                previewImage.style.display = "block";
-                dropArea.innerHTML = '';
-                dropArea.appendChild(previewImage);
-
-                // Adiciona a imagem em base64 no campo hidden
-                imageDataInput.value = reader.result;
-            };
-            reader.readAsDataURL(file);
-        }
+       
 
         // Gerar QR Code quando clicar no botão "Gerar QR Code"
         document.getElementById("generate-qrcode").addEventListener("click", function() {

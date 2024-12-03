@@ -15,43 +15,46 @@ class CrachaController extends Controller
     }
     public function gerarPdf(Request $request)
     {
-        dd($request->all());
-        $validated = $request->validate([
-            'nome' => 'required|string',
-            'cargo' => 'required|string',
-            'matricula' => 'required|string',
-            'casa' => 'required|string',
-            'imagem' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-        ]);
+      
+  
+         // Recupera os dados do formulário
+    $nome = $request->input('nome');
+    $cargo = $request->input('cargo');
+    $matricula = $request->input('matricula');
+    $casa = $request->input('casa');
+    
 
-        // Processar a imagem carregada
-        $imagePath = null;
-        if ($request->hasFile('imagem')) {
-            $file = $request->file('imagem');
-            $imagePath = $file->storeAs('public/uploads', $file->hashName());
-            $imagePath = Storage::url($imagePath);
+        // Recupera o arquivo de imagem enviado
+        $image = $request->file('image');
+        // Define o nome da imagem (usando o timestamp para evitar conflitos)
+        $imageName = 'image_' . time() . '.' . $image->getClientOriginalExtension();
+
+        // Define o caminho para salvar a imagem
+        $imagePath = 'uploads/images/' . $imageName;
+
+        // Verifica se o diretório 'uploads/images' existe; caso não, cria
+        $imageDirectory = public_path('uploads/images');
+        if (!file_exists($imageDirectory)) {
+            mkdir($imageDirectory, 0775, true);  // Cria o diretório com permissões adequadas
         }
 
-        // Gerar o QR Code URL
-        $unidade = match (true) {
-            str_starts_with($validated['casa'], 'FIBRA') => 3,
-            str_starts_with($validated['casa'], 'SENAI') => 2,
-            str_starts_with($validated['casa'], 'SESI') => 1,
-            str_starts_with($validated['casa'], 'IEL') => 4,
-            default => 0,
-        };
+        // Salva a imagem no diretório especificado
+        $image->move($imageDirectory, $imageName);
+    
+    // Recupera o QR Code
+    $qrcodeUrl = $request->input('qrcode_url');
 
-        $concatenado = "{$unidade}-{$validated['matricula']}-{$validated['nome']}";
-        $base64String = base64_encode($concatenado);
-        $qrcodeUrl = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={$base64String}";
-
-        // Renderizar o PDF com a view
-        $pdf = Pdf::loadView('pdf.template', [
-            'dados' => $validated,
-            'qrcodeUrl' => $qrcodeUrl,
-            'imagePath' => $imagePath,
-        ]);
-
-        return $pdf->download('arquivo.pdf');
-    }
+            // Passa os dados para a visualização
+            return view('cracha', [
+                'nome' => $nome,
+                'cargo' => $cargo,
+                'matricula' => $matricula,
+                'casa' => $casa,
+                'imagePath' => $imagePath,  // Caminho da imagem
+                'qrcodeUrl' => $qrcodeUrl,
+                'imageName' =>$imageName, // URL do QR Code
+            ]);
+        }
+        
+        
 }
