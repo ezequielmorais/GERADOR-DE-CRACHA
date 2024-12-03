@@ -7,7 +7,12 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Storage;
 
 class CrachaController extends Controller
+
 {
+    public function cracha()
+    {
+        return view('/cracha');
+    }
     public function gerarPdf(Request $request)
     {
         dd($request->all());

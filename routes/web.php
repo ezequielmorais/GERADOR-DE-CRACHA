@@ -25,3 +25,4 @@ Route::get('/login', function () {
 Route::POST('/welcome', [AutenticaADController::class, 'validaUsuarioADApp']);
 Route::get('/welcome', [AutenticaADController::class, 'index']);
 Route::POST('/cracha', [CrachaController::class, 'gerarPdf'])->name('gerar.pdf');
+Route::get('/cracha', [CrachaController::class, 'cracha']);
