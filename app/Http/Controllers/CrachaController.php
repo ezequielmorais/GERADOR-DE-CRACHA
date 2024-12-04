@@ -13,16 +13,15 @@ class CrachaController extends Controller
     {
         return view('/cracha');
     }
-    public function gerarPdf(Request $request)
+    public function preview(Request $request)
     {
-      
-  
-         // Recupera os dados do formulário
-    $nome = $request->input('nome');
-    $cargo = $request->input('cargo');
-    $matricula = $request->input('matricula');
-    $casa = $request->input('casa');
-    
+
+        // Recupera os dados do formulário
+        $nome = $request->input('nome');
+        $cargo = $request->input('cargo');
+        $matricula = $request->input('matricula');
+        $casa = $request->input('casa');
+
 
         // Recupera o arquivo de imagem enviado
         $image = $request->file('image');
@@ -40,21 +39,43 @@ class CrachaController extends Controller
 
         // Salva a imagem no diretório especificado
         $image->move($imageDirectory, $imageName);
-    
-    // Recupera o QR Code
-    $qrcodeUrl = $request->input('qrcode_url');
 
-            // Passa os dados para a visualização
-            return view('cracha', [
-                'nome' => $nome,
-                'cargo' => $cargo,
-                'matricula' => $matricula,
-                'casa' => $casa,
-                'imagePath' => $imagePath,  // Caminho da imagem
-                'qrcodeUrl' => $qrcodeUrl,
-                'imageName' =>$imageName, // URL do QR Code
-            ]);
-        }
+        // Recupera o QR Code
+        $qrcodeUrl = $request->input('qrcode_url');
+
+        // Passa os dados para a visualização
+        return view('cracha', [
+            'nome' => $nome,
+            'cargo' => $cargo,
+            'matricula' => $matricula,
+            'casa' => $casa,
+            'imagePath' => $imagePath,  // Caminho da imagem
+            'qrcodeUrl' => $qrcodeUrl,
+            'imageName' => $imageName,
+            
+        ]);
+    }
+
+    public function gerarPdf(Request $request)
+    {
+        // Recupera os dados enviados do formulário
+        $nome = $request->input('nome');
+        $cargo = $request->input('cargo');
+        $matricula = $request->input('matricula');
+        $casa = $request->input('casa');
+        $qrcodeUrl = $request->input('qrcode_url');
+        $imagePath = $request->input('image');  // Caminho da imagem carregada
+        // Gera o PDF
+        return view('pdf', [
+            'nome' => $nome,
+            'cargo' => $cargo,
+            'matricula' => $matricula,
+            'casa' => $casa,
+            'imagePath' => $imagePath, // Caminho relativo da imagem para exibição
+            'qrcodeUrl' => $qrcodeUrl, // URL do QR Code
+        ]);
+
+        // Envia o PDF diretamente para o navegador
         
-        
+    }
 }

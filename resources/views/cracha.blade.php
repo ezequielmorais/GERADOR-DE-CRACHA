@@ -5,7 +5,17 @@
 <link rel="stylesheet" href="{{ asset('css/cracha.css') }}">
 
 <body>
+    <form method="POST" action="{{ route('gerarPdf') }}" id="form-gerar-pdf">
+        @csrf
+        <input type="hidden" name="nome" value="{{ $nome }}">
+        <input type="hidden" name="cargo" value="{{ $cargo }}">
+        <input type="hidden" name="matricula" value="{{ $matricula }}">
+        <input type="hidden" name="casa" value="{{ $casa }}">
+        <input type="hidden" name="qrcode_url" value="{{ $qrcodeUrl }}">
+        <input type="hidden" name="image" value="{{ asset($imagePath ?? '') }}"> <!-- Caminho da imagem carregada -->
 
+        <button type="submit" class="btn btn-primary">Gerar PDF</button>
+    </form>
     <div class="crachas-container">
         <!-- Crachá 1 -->
         <div class="card-container">
@@ -18,26 +28,22 @@
                 <div class="drop-area" id="drop-area">
                     <!-- Exibe a imagem enviada, se houver -->
                     @if($imagePath)
-                        <img id="preview-image" src="{{ asset($imagePath) }}" alt="Imagem carregada">
+                    <img id="preview-image" src="{{ asset($imagePath) }}" alt="Imagem carregada">
                     @else
-                        <img id="preview-image" src="img/upload.png" alt="Pré-visualização">
+                    <img id="preview-image" src="img/upload.png" alt="Pré-visualização">
                     @endif
                 </div>
 
                 <div class="image-preview" id="image-preview">
                     @if($imagePath)
-                        <img id="preview-image" src="{{ asset($imagePath) }}" alt="Imagem carregada">
+                    <img id="preview-image" src="{{ asset($imagePath) }}" alt="Imagem carregada">
                     @else
-                        <img id="preview-image" src="img/upload.png" alt="Pré-visualização">
+                    <img id="preview-image" src="img/upload.png" alt="Pré-visualização">
                     @endif
                 </div>
 
                 <div class="form-container" id="form-container">
-                    <form method="POST" action="/upload" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" name="image_data" id="image_data">
-                        <button type="submit" class="btn btn-primary">Enviar Imagem</button>
-                    </form>
+                   
                 </div>
                 <p class="usuario">{{ $nome }}</p>
                 <p class="cargo">{{ $cargo }}</p>
