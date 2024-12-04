@@ -8,7 +8,6 @@
         font-family: Arial, sans-serif;
         margin: 0px;
         background-color: #f9f9f9;
-
         padding: 0;
     }
 
@@ -17,7 +16,6 @@
         margin-bottom: 20px;
         color: #333;
         margin-top: 50px;
-
     }
 
     .form-container {
@@ -90,10 +88,8 @@
     input[type="file"],
     .select {
         margin: -1px 0;
-        /* Diminui a margem entre os inputs */
     }
 </style>
-
 
 <div class="form-container">
     <h2>Gerar QR Code e Imprimir PDF</h2>
@@ -117,55 +113,51 @@
             <option value="FIBRA">FIBRA</option>
         </select><br><br>
 
-
         <input type="file" name="image" accept="image/*">
-
-
+        <div id="qrcode-container" style="margin-top: 0px; text-align: center; display: none;">
+    <p>QR Code gerado:</p>
+    <div id="qrcode"></div>
+</div>
         <div class="button-container">
-            <button type="button" id="generate-qrcode">Gerar QR Code</button>
             <button type="submit">Gerar PDF</button>
         </div>
     </form>
 </div>
 
-<div id="qrcode-container" style="margin-top: 0px; text-align: center; display: none;">
-    <p>QR Code gerado:</p>
-    <div id="qrcode"></div>
-</div>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-
-
-        // Gerar QR Code quando clicar no botão "Gerar QR Code"
-        document.getElementById("generate-qrcode").addEventListener("click", function() {
+        // Função para gerar o QR Code automaticamente
+        function gerarQRCode() {
             const nome = document.getElementById("nome").value;
             const cargo = document.getElementById("cargo").value;
             const matricula = document.getElementById("matricula").value;
             const casa = document.getElementById("casa").value;
 
+            // Verifica se todos os campos foram preenchidos
             if (!nome || !cargo || !matricula || !casa) {
-                alert("Preencha todos os campos para gerar o QR Code.");
+                document.getElementById("qrcode-container").style.display = "none"; // Esconde o QR code caso algum campo esteja vazio
                 return;
             }
 
             const base64String = converteBase64(matricula, casa, nome);
 
-            // Criar e exibir o QR Code
+            // Criar o QR Code
             const qrcodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${base64String}`;
             const qrcodeContainer = document.getElementById("qrcode");
             qrcodeContainer.innerHTML = `<img src="${qrcodeUrl}" alt="QR Code">`;
 
-            // Mostrar o container do QR Code
+            // Exibe o QR Code
             document.getElementById("qrcode-container").style.display = "block";
 
-            // Adicionar QR Code ao formulário
+            // Adiciona o QR Code ao formulário
             const qrCodeInput = document.createElement("input");
             qrCodeInput.type = "hidden";
             qrCodeInput.name = "qrcode_url";
             qrCodeInput.value = qrcodeUrl;
             document.getElementById("form").appendChild(qrCodeInput);
-        });
+        }
 
         // Função para converter dados em base64
         function converteBase64(matricula, casa, nome) {
@@ -177,8 +169,13 @@
             const concatenado = `${unidade}-${matricula}-${nome}`;
             return btoa(concatenado); // Retorna a string em base64
         }
+
+        // Adiciona eventos de input para gerar QR Code enquanto os dados são preenchidos
+        document.getElementById("nome").addEventListener("input", gerarQRCode);
+        document.getElementById("cargo").addEventListener("input", gerarQRCode);
+        document.getElementById("matricula").addEventListener("input", gerarQRCode);
+        document.getElementById("casa").addEventListener("change", gerarQRCode);
     });
 </script>
-
 
 @endsection
