@@ -52,7 +52,7 @@ class CrachaController extends Controller
             'imagePath' => $imagePath,  // Caminho da imagem
             'qrcodeUrl' => $qrcodeUrl,
             'imageName' => $imageName,
-            
+
         ]);
     }
 
@@ -65,17 +65,23 @@ class CrachaController extends Controller
         $casa = $request->input('casa');
         $qrcodeUrl = $request->input('qrcode_url');
         $imagePath = $request->input('image');  // Caminho da imagem carregada
+
+$exploded = explode('1:8000', $imagePath);
+     
+        // Se o QR Code estiver em um caminho local, converta para base64
+        $qrcodeImage = file_get_contents($qrcodeUrl);
+        $qrcodeBase64 = base64_encode($qrcodeImage);
+
         // Gera o PDF
-        return view('pdf', [
+        $pdf = PDF::loadView('pdf', [
             'nome' => $nome,
             'cargo' => $cargo,
             'matricula' => $matricula,
             'casa' => $casa,
-            'imagePath' => $imagePath, // Caminho relativo da imagem para exibição
-            'qrcodeUrl' => $qrcodeUrl, // URL do QR Code
+            'imagePath' => $exploded[1], // Caminho da imagem para exibição
+            'qrcodeUrl' => $qrcodeBase64, // URL do QR Code em base64
         ]);
 
-        // Envia o PDF diretamente para o navegador
-        
+        return $pdf->download('crachas.pdf');
     }
 }
