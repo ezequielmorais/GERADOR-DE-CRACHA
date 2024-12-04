@@ -52,7 +52,7 @@ class CrachaController extends Controller
             'imagePath' => $imagePath,  // Caminho da imagem
             'qrcodeUrl' => $qrcodeUrl,
             'imageName' => $imageName,
-            
+
         ]);
     }
 
@@ -76,6 +76,6 @@ class CrachaController extends Controller
         ]);
 
         // Envia o PDF diretamente para o navegador
-        
+
     }
 }
