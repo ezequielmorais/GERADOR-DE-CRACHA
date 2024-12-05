@@ -116,7 +116,7 @@
                 <img src="img/cracha-frente-barra1.png" alt="Imagem do Cracha">
 
                 <div class="drop-area">
-                    <img id="preview-image" src="file://{{ public_path('uploads/images/image_1733334405.JPG') }}" alt="Imagem carregada">
+                    <img id="preview-image" src="file://{{ public_path($imagePath)}}" alt="Imagem carregada">
                 </div>
 
                 <p class="usuario">{{ $nome }}</p>
@@ -131,13 +131,13 @@
         <!-- Crachá 2 -->
         <div class="cracha">
             <div class="card-body">
-                <img src="{{ asset('img/rodape.png') }}" alt="Imagem do Cracha">
+                <img src="img/rodape.png" alt="Imagem do Cracha">
 
                 <div class="qr-code">
                     <img src="data:image/png;base64,{{ $qrcodeUrl }}" alt="QR Code">
                 </div>
 
-                <img class="footer-img" src="{{ asset('img/cracha-rodape-costas.png') }}" alt="footer">
+                <img class="footer-img" src="img/cracha-rodape-costas.png" alt="footer">
             </div>
         </div>
 
