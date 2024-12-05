@@ -1,90 +1,130 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <title>Crachás</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         @page {
             size: A4;
-            margin: 0.5cm; /* Margem da página */
+            margin: 1cm;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         .cracha-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin: 0;
+            width: 100%;
+
+            text-align: center;
         }
 
         .cracha {
-            width: 8.5cm; /* Largura do crachá */
-            height: 5.5cm; /* Altura do crachá */
-            margin-bottom: 10px;
-            page-break-before: always; /* Garante que cada crachá esteja em uma página separada */
-            page-break-after: always; /* Garante que o crachá termine com uma quebra de página */
+            width: 226px;
+            height: 330px;
+            margin: 0 auto 1cm auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            page-break-inside: avoid;
+            /* Evita quebras no meio de um crachá */
         }
 
-        /* Primeira quebra de página é opcional, apenas para o primeiro crachá */
-        .cracha:first-of-type {
-            page-break-before: auto;
+        .cracha:nth-child(2) {
+            page-break-before: always;
+            /* Força quebra antes do segundo crachá */
         }
 
-        /* Layout para a imagem */
-        .drop-area {
-            width: 100px;
-            height: 120px;
+        .cracha img {
+            width: 100%;
+            height: auto;
+        }
+
+        .drop-area,
+        .qr-code {
+            width: 90px;
+            height: 90px;
+            margin: 10px auto;
+            margin-top: 20px;
             border: 2px solid #245ca8;
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 15px;
-        }
-
-        .drop-area img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;  /* Ajusta a imagem para caber sem distorção */
             border-radius: 8px;
         }
 
         .usuario {
+            font-family: 'Inter', Arial, sans-serif;
             color: #1c56a8;
-            font-weight: bold;
-            font-family: "Inter", Courier, monospace;
+
             padding: 5px;
-            margin-bottom: 0;
+            margin-top: -5px;
             font-size: 15px;
-            text-align: center;
         }
 
         .cargo {
-            font-family: "Inter", Courier, monospace;
-            margin-top: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            margin-top: -13px;
             font-size: 12px;
             font-weight: 700;
             color: gray;
-            text-align: center;
         }
 
         .footer-img {
-            width: 8.5cm;
-            height: 1.5cm;
-            margin-top: 15px;
+            width: 100%;
+            height: 50px;
             display: block;
-            margin-left: auto;
-            margin-right: auto;
+            margin-top: 12px;
         }
 
-        .qr-code {
+        .matricula {
+            position: absolute;
+            top: 7px;
+            right: 263px;
+            font-size: 12px;
+            color: #ffffff;
+            background-color: transparent;
+            padding: 5px;
+            z-index: 10;
+            margin-top: 312px;
+            margin-bottom: 600px;
+        }
+
+        .image-preview {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            border: 2px solid #245ca8;
+            height: 120px;
+        }
+
+        .drop-area img {
+            width: 90px;
+            height: 105px;
+            object-fit: contain;
+            margin-top: 10px;
+        }
+
+        .drop-area {
+            width: 100px;
+            height: 120px;
+        }
+
+        .cod-matricula {
+            font-weight: 700;
+        }
+
+        .footer-img1 {
+            width: 230px;
+            height: -10px;
+            margin-top: 60px;
+        }
+
+        .drop-area1 {
             width: 90px;
             height: 90px;
             border: 2px solid #245ca8;
@@ -92,56 +132,59 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 10px;
-        }
-
-        .matricula {
-            font-size: 12px;
-            color: #ffffff;
-            background-color: transparent;
-            padding: 5px;
+            color: #245ca8;
+            font-size: 5px;
+            cursor: pointer;
             text-align: center;
+            position: relative;
+            margin-top: 50px;
+            margin-bottom: -6px;
+            right: -70px;
         }
 
+        .drop-area1 img {
+            margin-top: 10px;
+            width: 70px;
+
+            height: 70px;
+
+            object-fit: contain;
+
+        }
     </style>
 </head>
+
 <body>
-
-    <!-- Container de Crachás -->
     <div class="cracha-container">
-
         <!-- Crachá 1 -->
         <div class="cracha">
-            <div class="card-body" style="position: relative;">
-                <img src="img/cracha-frente-barra1.png" alt="Imagem do Cracha">
-
-                <div class="drop-area">
-                    <img id="preview-image" src="file://{{ public_path($imagePath)}}" alt="Imagem carregada">
-                </div>
-
-                <p class="usuario">{{ $nome }}</p>
-                <p class="cargo">{{ $cargo }}</p>
-
-                <img class="footer-img" src="img/footer-img1.png" alt="footer">
-
-                <p class="matricula">Matrícula <span class="cod-matricula">{{ $matricula }}</span></p>
+            <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/CRACHA1.png'))) }}"
+                alt="Imagem do Cracha">
+            <div class="drop-area">
+                <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path($imagePath))) }}"
+                    alt="Imagem carregada">
             </div>
+            <p class="usuario" style="font-family: 'Inter', Arial, sans-serif;"><strong>{{ $nome }}</strong></p>
+            <p class="cargo">{{ $cargo }}</p>
+            <img class="footer-img"
+                src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/CRACHA-BAIXO.png'))) }}"
+                alt="footer">
+
+            <p class="matricula"> <span class="cod-matricula">{{ $matricula }}</span></p>
         </div>
 
         <!-- Crachá 2 -->
-        <div class="cracha">
-            <div class="card-body">
-                <img src="img/rodape.png" alt="Imagem do Cracha">
-
-                <div class="qr-code">
-                    <img src="data:image/png;base64,{{ $qrcodeUrl }}" alt="QR Code">
-                </div>
-
-                <img class="footer-img" src="img/cracha-rodape-costas.png" alt="footer">
+        <div class="cracha" style="page-break-before: always;">
+            <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/CRACHA-VERSO.png'))) }}"
+                alt="Imagem do Cracha">
+            <div class="drop-area1">
+                <img class="qr-code1" src="data:image/png;base64,{{ $qrcodeUrl }}" alt="QR Code">
             </div>
+            <img class="footer-img1"
+                src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/CRACHA-VERSO-BAIXO.png'))) }}"
+                alt="Rodapé">
         </div>
-
     </div>
-
 </body>
+
 </html>

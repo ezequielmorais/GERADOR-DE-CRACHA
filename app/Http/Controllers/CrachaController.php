@@ -66,8 +66,8 @@ class CrachaController extends Controller
         $qrcodeUrl = $request->input('qrcode_url');
         $imagePath = $request->input('image');  // Caminho da imagem carregada
 
-$exploded = explode('1:8000/', $imagePath);
-     
+        $exploded = explode('1:8000/', $imagePath);
+
         // Se o QR Code estiver em um caminho local, converta para base64
         $qrcodeImage = file_get_contents($qrcodeUrl);
         $qrcodeBase64 = base64_encode($qrcodeImage);
