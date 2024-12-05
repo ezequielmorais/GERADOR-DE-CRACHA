@@ -95,14 +95,14 @@
 <body>
 
   <header class="header">
-    <img class="logo-container " src="img/logo-branca1.png" alt="logo">
+   <a href="/welcome"> <img class="logo-container " src="img/logo-branca1.png" alt="logo"></a>
     <i class="bi bi-list"></i>
-    <form method="POST" action="" class="logout-form" id="logout-form">
+    <form method="POST" action="{{ route('logout') }}" class="logout-form" id="logout-form">
       @csrf
       <div class="logout-container">
         <!-- Adiciona o contêiner para empilhar -->
         <img src="img/icone-perfil1.png" alt="Perfil">
-        <button type="button" onclick="msgLogoff(event)">
+        <button type="submit" onclick="msgLogoff(event)">
           SAIR
         </button>
       </div>

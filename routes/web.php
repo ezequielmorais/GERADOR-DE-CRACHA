@@ -15,15 +15,22 @@ use App\Http\Controllers\CrachaController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/login', function () {
     return view('login');
 });
 Route::POST('/welcome', [AutenticaADController::class, 'validaUsuarioADApp']);
-Route::get('/welcome', [AutenticaADController::class, 'index']);
-Route::POST('/cracha', [CrachaController::class, 'preview'])->name('preview');
-Route::get('/cracha', [CrachaController::class, 'cracha']);
-Route::POST('/cracha/gerar-pdf', [CrachaController::class, 'gerarPdf'])->name('gerarPdf');
+
+
+
+Route::post('/logout', [AutenticaADController::class, 'logout'])->name('logout');
+
+Route::middleware(['authenticated'])->group(function () {
+
+    Route::get('/welcome', [AutenticaADController::class, 'index']);
+    Route::POST('/cracha', [CrachaController::class, 'preview'])->name('preview');
+    Route::get('/cracha', [CrachaController::class, 'cracha']);
+    Route::POST('/cracha/gerar-pdf', [CrachaController::class, 'gerarPdf'])->name('gerarPdf');
+
+});

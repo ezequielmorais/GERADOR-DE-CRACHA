@@ -105,7 +105,9 @@
     border-radius: 8px;
   }
 </style>
-
+@if (session('user'))
+    <p>Bem-vindo, {{ session('user')['nome'] }}!</p>
+@endif
 <div class="form-container">
   <h2>Gerar QR Code e Imprimir PDF</h2>
   <form id="form" action="{{ route('preview') }}" method="POST" enctype="multipart/form-data">
