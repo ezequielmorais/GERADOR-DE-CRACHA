@@ -26,8 +26,8 @@
         }
 
         .cracha {
-            width: 226px;
-            height: 330px;
+            width: 100%;
+            height: 100%;
             margin: 0 auto 1cm auto;
             border: 1px solid #ddd;
             padding: 10px;
@@ -43,12 +43,13 @@
         .cracha img {
             width: 100%;
             height: auto;
+
         }
 
         .drop-area,
         .qr-code {
-            width: 90px;
-            height: 90px;
+            width: 300px;
+            height: 400px;
             margin: 10px auto;
             margin-top: 20px;
             border: 2px solid #245ca8;
@@ -74,7 +75,7 @@
 
         .footer-img {
             width: 100%;
-            height: 50px;
+            height: 400px;
             display: block;
             margin-top: 12px;
         }
@@ -103,15 +104,18 @@
         }
 
         .drop-area img {
-            width: 90px;
-            height: 105px;
+            justify-content: center;
+            width: 400px;
+            height: 350px;
             object-fit: contain;
             margin-top: 10px;
+            <?php if ($tipo != 'png') { ?>transform: rotate(270deg);
+            <?php } ?>
         }
 
         .drop-area {
-            width: 100px;
-            height: 120px;
+            width: 370px;
+            height: 440px;
         }
 
         .cod-matricula {
@@ -125,8 +129,8 @@
         }
 
         .drop-area1 {
-            width: 90px;
-            height: 90px;
+            width: 350px;
+            height: 350px;
             border: 2px solid #245ca8;
             border-radius: 8px;
             display: flex;
@@ -139,15 +143,14 @@
             position: relative;
             margin-top: 50px;
             margin-bottom: -6px;
-            right: -70px;
+            right: -220px;
         }
 
         .drop-area1 img {
             margin-top: 10px;
-            width: 70px;
-
-            height: 70px;
-
+            width: 300px;
+            
+            height: 300px;
             object-fit: contain;
 
         }

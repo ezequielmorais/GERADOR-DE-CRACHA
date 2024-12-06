@@ -71,7 +71,7 @@ class CrachaController extends Controller
         // Se o QR Code estiver em um caminho local, converta para base64
         $qrcodeImage = file_get_contents($qrcodeUrl);
         $qrcodeBase64 = base64_encode($qrcodeImage);
-
+        $tipo =  explode('.', $exploded[1]);
         // Gera o PDF
         $pdf = PDF::loadView('pdf', [
             'nome' => $nome,
@@ -79,7 +79,8 @@ class CrachaController extends Controller
             'matricula' => $matricula,
             'casa' => $casa,
             'imagePath' => $exploded[1], // Caminho da imagem para exibição
-            'qrcodeUrl' => $qrcodeBase64, // URL do QR Code em base64
+            'qrcodeUrl' => $qrcodeBase64,
+            'tipo' => $tipo[1], // URL do QR Code em base64
         ]);
 
         return $pdf->download('crachas.pdf');
