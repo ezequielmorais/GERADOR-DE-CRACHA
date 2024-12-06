@@ -17,74 +17,120 @@
             font-family: 'Inter', Arial, sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .cracha-container {
             width: 100%;
-
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 1cm;
             text-align: center;
         }
 
         .cracha {
             width: 100%;
-            height: 100%;
-            margin: 0 auto 1cm auto;
+            max-height: 100%;
             border: 1px solid #ddd;
             padding: 10px;
-            page-break-inside: avoid;
-            /* Evita quebras no meio de um crachá */
-        }
-
-        .cracha:nth-child(2) {
-            page-break-before: always;
-            /* Força quebra antes do segundo crachá */
+            box-sizing: border-box;
         }
 
         .cracha img {
             width: 100%;
             height: auto;
-
         }
 
-        .drop-area,
-        .qr-code {
-            width: 300px;
-            height: 400px;
+        .drop-area img {
+            justify-content: center;
+            width: 255px;
+            height: 210px;
+            object-fit: contain;
+            margin-top: 39px;
+
+            <?php if ($tipo != 'png') {
+            ?>transform: rotate(270deg);
+            <?php
+            }
+
+            ?>
+        }
+
+        .drop-area {
+
+            width: 250px;
+            height: 280px;
             margin: 10px auto;
-            margin-top: 20px;
+            border: 2px solid #245ca8;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 70px;
+        }
+
+        .footer-img {
+            width: 100%;
+            height: 300px;
+            display: block;
+            margin-top: 90px;
+        }
+
+        .drop-area1 {
+            width: 100%;
+            width: 290px;
+            height: 290px;
+            margin: 10px auto;
             border: 2px solid #245ca8;
             border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 120px;
+        }
+
+
+
+        .drop-area1 img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
         }
 
         .usuario {
             font-family: 'Inter', Arial, sans-serif;
             color: #1c56a8;
-
             padding: 5px;
-            margin-top: -5px;
-            font-size: 15px;
+            margin-top: 35px;
+            font-size: 30px;
         }
 
         .cargo {
             font-family: 'Inter', Arial, sans-serif;
-            margin-top: -13px;
-            font-size: 12px;
+            margin-top: 15px;
+            font-size: 28px;
             font-weight: 700;
             color: gray;
         }
 
-        .footer-img {
+
+
+        .footer-img1 {
             width: 100%;
-            height: 400px;
+            height: 300px;
             display: block;
-            margin-top: 12px;
+            margin-top: 115px;
         }
 
         .matricula {
             position: absolute;
-            top: 7px;
-            right: 263px;
-            font-size: 12px;
+            top: 608px;
+            right: 60px;
+            font-size: 32px;
             color: #ffffff;
             background-color: transparent;
             padding: 5px;
@@ -93,64 +139,14 @@
             margin-bottom: 600px;
         }
 
-        .image-preview {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100px;
-            border: 2px solid #245ca8;
-            height: 120px;
-        }
-
-        .drop-area img {
-            justify-content: center;
-            width: 400px;
-            height: 350px;
-            object-fit: contain;
-            margin-top: 10px;
-            <?php if ($tipo != 'png') { ?>transform: rotate(270deg);
-            <?php } ?>
-        }
-
-        .drop-area {
-            width: 370px;
-            height: 440px;
-        }
-
         .cod-matricula {
             font-weight: 700;
         }
 
-        .footer-img1 {
-            width: 230px;
-            height: -10px;
-            margin-top: 60px;
-        }
-
-        .drop-area1 {
-            width: 350px;
-            height: 350px;
-            border: 2px solid #245ca8;
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #245ca8;
-            font-size: 5px;
-            cursor: pointer;
-            text-align: center;
-            position: relative;
-            margin-top: 50px;
-            margin-bottom: -6px;
-            right: -220px;
-        }
-
         .drop-area1 img {
-            margin-top: 10px;
-            width: 300px;
-            
-            height: 300px;
+            margin-top: 25px;
+            width: 240px;
+            height: 240px;
             object-fit: contain;
 
         }
@@ -167,17 +163,16 @@
                 <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path($imagePath))) }}"
                     alt="Imagem carregada">
             </div>
-            <p class="usuario" style="font-family: 'Inter', Arial, sans-serif;"><strong>{{ $nome }}</strong></p>
+            <p class="usuario"><strong>{{ $nome }}</strong></p>
             <p class="cargo">{{ $cargo }}</p>
             <img class="footer-img"
                 src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/CRACHA-BAIXO.png'))) }}"
                 alt="footer">
-
-            <p class="matricula"> <span class="cod-matricula">{{ $matricula }}</span></p>
+            <p class="matricula"><span class="cod-matricula">{{ $matricula }}</span></p>
         </div>
 
         <!-- Crachá 2 -->
-        <div class="cracha" style="page-break-before: always;">
+        <div class="cracha">
             <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/CRACHA-VERSO.png'))) }}"
                 alt="Imagem do Cracha">
             <div class="drop-area1">
