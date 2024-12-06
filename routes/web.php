@@ -21,7 +21,9 @@ Route::get('/login', function () {
     return view('login');
 });
 Route::POST('/welcome', [AutenticaADController::class, 'validaUsuarioADApp']);
-
+Route::get('/', function () {
+    return view('login');
+});
 
 
 Route::post('/logout', [AutenticaADController::class, 'logout'])->name('logout');
