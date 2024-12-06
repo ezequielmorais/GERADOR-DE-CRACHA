@@ -72,7 +72,12 @@ class CrachaController extends Controller
         $qrcodeImage = file_get_contents($qrcodeUrl);
         $qrcodeBase64 = base64_encode($qrcodeImage);
         $tipo =  explode('.', $exploded[1]);
-        // Gera o PDF
+        
+
+
+//cleiton e felipe
+
+
         $pdf = PDF::loadView('pdf', [
             'nome' => $nome,
             'cargo' => $cargo,
