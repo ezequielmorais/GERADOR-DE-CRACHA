@@ -93,8 +93,6 @@
             margin-top: 120px;
         }
 
-
-
         .drop-area1 img {
             width: 90%;
             height: 90%;
