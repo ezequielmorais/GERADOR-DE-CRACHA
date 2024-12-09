@@ -1,7 +1,7 @@
 @extends('templates.template')
 @section('title', 'welcome')
 @section('Conteudo')
-
+{{-- teste --}}
 <link rel="stylesheet" href="{{ asset('css/cracha.css') }}">
 <style>
   .drop-area {
