@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
             size: A4;
             margin: 1cm;
         }
-
+ 
         body {
             font-family: 'Inter', Arial, sans-serif;
             margin: 0;
@@ -21,7 +21,7 @@
             justify-content: center;
             align-items: center;
         }
-
+ 
         .cracha-container {
             width: 100%;
             height: 100%;
@@ -31,37 +31,33 @@
             gap: 1cm;
             text-align: center;
         }
-
+ 
         .cracha {
             width: 100%;
             max-height: 100%;
             border: 1px solid #ddd;
-            padding: 10px;
+            /* padding: 10px; */
+            margin: 0;
             box-sizing: border-box;
         }
-
+ 
         .cracha img {
             width: 100%;
             height: auto;
         }
-
+ 
         .drop-area img {
             justify-content: center;
             width: 255px;
             height: 210px;
             object-fit: contain;
             margin-top: 39px;
-
-            <?php if ($tipo != 'png') {
-            ?>transform: rotate(270deg);
-            <?php
-            }
-
-            ?>
+ 
+          
         }
-
+ 
         .drop-area {
-
+ 
             width: 250px;
             height: 280px;
             margin: 10px auto;
@@ -72,14 +68,14 @@
             align-items: center;
             margin-top: 70px;
         }
-
+ 
         .footer-img {
             width: 100%;
             height: 300px;
             display: block;
             margin-top: 90px;
         }
-
+ 
         .drop-area1 {
             width: 100%;
             width: 290px;
@@ -92,15 +88,15 @@
             align-items: center;
             margin-top: 120px;
         }
-
-
-
+ 
+ 
+ 
         .drop-area1 img {
             width: 90%;
             height: 90%;
             object-fit: contain;
         }
-
+ 
         .usuario {
             font-family: 'Inter', Arial, sans-serif;
             color: #1c56a8;
@@ -108,7 +104,7 @@
             margin-top: 35px;
             font-size: 30px;
         }
-
+ 
         .cargo {
             font-family: 'Inter', Arial, sans-serif;
             margin-top: 15px;
@@ -116,16 +112,16 @@
             font-weight: 700;
             color: gray;
         }
-
-
-
+ 
+ 
+ 
         .footer-img1 {
             width: 100%;
             height: 300px;
             display: block;
             margin-top: 115px;
         }
-
+ 
         .matricula {
             position: absolute;
             top: 608px;
@@ -138,21 +134,21 @@
             margin-top: 312px;
             margin-bottom: 600px;
         }
-
+ 
         .cod-matricula {
             font-weight: 700;
         }
-
+ 
         .drop-area1 img {
             margin-top: 25px;
             width: 240px;
             height: 240px;
             object-fit: contain;
-
+ 
         }
     </style>
 </head>
-
+ 
 <body>
     <div class="cracha-container">
         <!-- Crachá 1 -->
@@ -160,7 +156,7 @@
             <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/CRACHA1.png'))) }}"
                 alt="Imagem do Cracha">
             <div class="drop-area">
-                <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path($imagePath))) }}"
+                <img src="{{ (public_path($imagePath)) }}"
                     alt="Imagem carregada">
             </div>
             <p class="usuario"><strong>{{ $nome }}</strong></p>
@@ -170,7 +166,7 @@
                 alt="footer">
             <p class="matricula"><span class="cod-matricula">{{ $matricula }}</span></p>
         </div>
-
+ 
         <!-- Crachá 2 -->
         <div class="cracha">
             <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/CRACHA-VERSO.png'))) }}"
@@ -184,5 +180,5 @@
         </div>
     </div>
 </body>
-
+ 
 </html>

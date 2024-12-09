@@ -72,10 +72,10 @@ class CrachaController extends Controller
         $qrcodeImage = file_get_contents($qrcodeUrl);
         $qrcodeBase64 = base64_encode($qrcodeImage);
         $tipo =  explode('.', $exploded[1]);
-        
 
 
-//cleiton e felipe
+
+        //cleiton e felipe muito chatos
 
 
         $pdf = PDF::loadView('pdf', [
@@ -88,6 +88,6 @@ class CrachaController extends Controller
             'tipo' => $tipo[1], // URL do QR Code em base64
         ]);
 
-        return $pdf->download('crachas.pdf');
+        return $pdf->download($nome . '_Cracha.pdf');
     }
 }
