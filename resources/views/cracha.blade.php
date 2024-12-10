@@ -2,8 +2,34 @@
 @section('title', 'welcome')
 @section('Conteudo')
 {{-- tested2eze --}}
-<link rel="stylesheet" href="{{ asset('css/cracha.css') }}">
+<link
+  href="https://fonts.googleapis.com/css2?family=Danfo&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+  rel="stylesheet">
 <style>
+  @font-face {
+    font-family: 'Neo Sans Pro Black';
+    src: url('{{ asset("/Fonts/NeoSansProBlack.OTF") }}') format('opentype');
+
+    /* Black */
+
+  }
+
+  @font-face {
+    font-family: 'Neo Sans Pro';
+    src: url('/Fonts/NeoSansProMedium.OTF') format('opentype');
+
+    /* Medium */
+
+  }
+
+  @font-face {
+    font-family: 'Neo Sans Pro';
+    src: url('/Fonts/NeoSansProRegular.OTF') format('opentype');
+
+    /* Regular */
+
+  }
+
   .drop-area {
     width: 40px;
     height: 80px;
@@ -65,6 +91,7 @@
   .card-container {
     width: 360px;
     margin: 20px auto;
+    margin-top: 5px;
     border: 1px solid #ddd;
     border-radius: 0px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -97,14 +124,16 @@
   .usuario {
     color: #1c56a8;
     font-weight: 900;
-    font-family: "inter", Courier, monospace;
+    font-family: 'Inter', sans-serif;
+
     padding: 5px;
     margin-bottom: 0px;
     font-size: 15px;
   }
 
   .cargo {
-    font-family: "inter", Courier, monospace;
+    font-family: 'Inter', sans-serif;
+
     margin-top: 0px;
     font-size: 12px;
     font-weight: 700;
@@ -205,7 +234,12 @@
 
   }
 
-  .botao {}
+  .botao {
+    background-color: #0E4194;
+    margin-left: 128px;
+    margin-bottom: 20px;
+    font-family: "inter", Courier, monospace;
+  }
 </style>
 
 <body>
@@ -242,10 +276,12 @@
         <p class="usuario">{{ $nome }}</p>
         <p class="cargo">{{ $cargo }}</p>
 
-        <img class="footer-img" src="img/CRACHA-BAIXO.png" alt="footer">
+        <img class="footer-img" src="img/CRACHA-MATRICULA.png" alt="footer">
 
         <!-- Tag Matricula que ficará sobre a imagem -->
-        <p class="matricula"> <span class="cod-matricula">{{ $matricula }}</span></p>
+        <p class="matricula">
+          Matrícula<span class="cod-matricula"> {{ $matricula }}
+          </span></p>
       </div>
 
       <!-- cracha2 -->
@@ -282,7 +318,7 @@
         <input type="hidden" name="qrcode_url" value="{{ $qrcodeUrl }}">
         <input type="hidden" name="image" value="{{ asset($imagePath ?? '') }}"> <!-- Caminho da imagem carregada -->
 
-        <button type="submit" class="butao btn btn-primary">Gerar PDF</button>
+        <button type="submit" class="botao btn btn-primary">IMPRIMIR</button>
       </form>
     </div>
   </div>

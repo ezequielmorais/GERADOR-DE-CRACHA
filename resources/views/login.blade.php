@@ -26,12 +26,12 @@
         @csrf
         <div class="input-group">
           <label for="username">Usuário</label>
-          <input type="text" id="username" name="nome">
+          <input type="text" id="username" name="nome" placeholder="Digite o Usuário...">
           <i class="fas fa-user icon"></i>
         </div>
         <div class="input-group">
           <label for="password">Senha</label>
-          <input type="password" id="password" placeholder="senha de acesso" name="senha">
+          <input type="password" id="password" placeholder="Digite a Senha..." name="senha">
           <i class="fas fa-eye icon" id="togglePassword"></i>
         </div>
         <button type="submit" class="btn">ENTRAR</button>
