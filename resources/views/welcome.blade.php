@@ -106,7 +106,7 @@
   }
 </style>
 @if (session('user'))
-    <p>Bem-vindo, {{ session('user')['nome'] }}!</p>
+<p>Bem-vindo, {{ session('user')['nome'] }}!</p>
 @endif
 <div class="form-container">
   <h2>Gerar QR Code e Imprimir PDF</h2>
@@ -120,7 +120,7 @@
     <input type="text" name="cargo" id="cargo" required><br><br>
 
     <label for="matricula"><strong>Matrícula:</strong></label>
-    <input type="text" name="matricula" id="matricula" required><br><br>
+    <input type="number" maxlength="5" name="matricula" id="matricula" required><br><br>
 
     <label for="casa"><strong>Casa:</strong></label>
     <select class="casa" name="casa" id="casa" required>
@@ -130,7 +130,7 @@
       <option value="FIBRA">FIBRA</option>
     </select><br><br>
 
-    <input type="file" name="image" accept="image/*">
+    <input type="file" name="image" accept="image/*" required>
     <div id="qrcode-container" style="margin-top: 0px; text-align: center; display: none;">
       <p>QR Code gerado:</p>
       <div id="qrcode"></div>
@@ -197,6 +197,12 @@
     document.getElementById("cargo").addEventListener("input", gerarQRCode);
     document.getElementById("matricula").addEventListener("input", gerarQRCode);
     document.getElementById("casa").addEventListener("change", gerarQRCode);
+  });
+  document.getElementById("matricula").addEventListener("input", function () {
+    // Limita para no máximo 5 dígitos
+    if (this.value.length > 5) {
+      this.value = this.value.slice(0, 5);
+    }
   });
 </script>
 

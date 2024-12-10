@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+
 
 class CrachaController extends Controller
 
@@ -74,9 +76,7 @@ class CrachaController extends Controller
         $tipo =  explode('.', $exploded[1]);
 
 
-
-        //cleiton e felipe muito chatos
-
+        
 
         $pdf = PDF::loadView('pdf', [
             'nome' => $nome,
@@ -85,7 +85,8 @@ class CrachaController extends Controller
             'casa' => $casa,
             'imagePath' => $exploded[1], // Caminho da imagem para exibição
             'qrcodeUrl' => $qrcodeBase64,
-            'tipo' => $tipo[1], // URL do QR Code em base64
+            'tipo' => $tipo[1],
+             // URL do QR Code em base64
         ]);
 
         return $pdf->download($nome . '_Cracha.pdf');
