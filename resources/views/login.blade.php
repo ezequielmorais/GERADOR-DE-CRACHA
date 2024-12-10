@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
+<h1>teste</h1>
 
 <body>
   <div class="container">
@@ -23,7 +24,7 @@
       <img class="logo" src="img/logo-sistemafibra2024.png" alt="Logo">
       <p class="welcome">Bem vindo</p>
       <form action="/welcome" method="POST">
-      @csrf
+        @csrf
         <div class="input-group">
           <label for="username">Usuário</label>
           <input type="text" id="username" name="nome">
