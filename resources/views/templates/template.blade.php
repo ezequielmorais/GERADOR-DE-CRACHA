@@ -88,14 +88,26 @@
 
   .logout-container button:hover {
     background-color: transparent;
+    font-weight: bold;
+  }
 
+  .titulo-header {
+    font-family: "inter", sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 1000px;
+    margin-top: 15px;
   }
 </style>
 
 <body>
 
   <header class="header">
-   <a href="/welcome"> <img class="logo-container " src="img/logo-branca1.png" alt="logo"></a>
+    <a href="/welcome"> <img class="logo-container " src="img/logo-branca1.png" alt="logo"></a>
+    @if (session('user'))
+    <p class="titulo-header">Bem-vindo, {{ session('user')['nome'] }}!</p>
+    @endif
     <i class="bi bi-list"></i>
     <form method="POST" action="{{ route('logout') }}" class="logout-form" id="logout-form">
       @csrf
