@@ -92,7 +92,8 @@ class CrachaController extends Controller
             'tipo' => $tipo[1], // URL do QR Code em base64
             'tamanho' => $fileSizeKB,
         ]);
-
+        $pdf->getDomPDF()->getOptions()->set('fontDir', public_path('Fonts'));
+        $pdf->getDomPDF()->getOptions()->set('defaultFont', 'NeoSansProBlack');
         return $pdf->download($nome . '_Cracha.pdf');
     }
 }

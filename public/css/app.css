@@ -1,39 +1,114 @@
-.search-container {
+body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    background-color: #f9f9f9;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    margin-top: 50px;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 70px auto;
+    height: 650px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-size: 14px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 4px;
+    border: 1px solid black;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    color: black;
+}
+
+input[type="file"] {
+    padding: 6px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #0e4194;
+    font-family: "inter";
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0e4194;
+}
+
+.casa {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 4px;
+    border: 1px solid black;
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+input[type="text"],
+input[type="file"],
+.select {
+    margin: -1px 0;
+}
+
+.qr-code {
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-
-    margin-top: 60px;
-    /* Ajusta a margem superior para colocar mais perto do header */
-    padding: 0 20px;
-    /* Adiciona um pouco de espaço nas laterais */
+    width: 80px;
+    height: 80px;
+    border: 2px solid #245ca8;
+    border-radius: 8px;
 }
 
-.search-input {
+input[type="number"] {
     width: 100%;
-    max-width: 800px;
-    /* Limita a largura máxima da barra de pesquisa */
     padding: 10px;
-    font-size: 16px;
+    margin: 8px 0;
+    border-radius: 4px;
     border: 1px solid black;
-    border-radius: 20px;
-    box-sizing: border-box;
-    background-color: #d9d9d9;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    color: black;
+    margin-bottom: -9px;
 }
-
-.search-button {
-    padding: 10px 30px;
-    background-color: #0e4194;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-left: 10px;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.search-button:hover {
-    background-color: #0b3174;
+.titulo {
+    color: #245ca8;
+    font-weight: 700;
+    font-family: "Inter", Times, serif;
 }

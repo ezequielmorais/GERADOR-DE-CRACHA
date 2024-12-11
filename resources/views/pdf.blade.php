@@ -10,7 +10,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Danfo&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
-  <title>Crachás</title>
+  <title>Sistema Fibra</title>
   <style>
     @page {
       size: 54mm 86mm;
@@ -18,10 +18,28 @@
     }
 
     @font-face {
+      font-family: 'NeoSansPro-Black';
+      src: url("../fonts/NeoSansPro-Black.ttf");
+    }
+
+    @font-face {
+      font-family: 'NeoSansPro-Black';
+      src: url('{{ public_path("fonts/NeoSansPro-Black.ttf") }}') format('truetype');
+    }
+
+    @font-face {
       font-family: 'Neo Sans Pro Black';
-      src: url('{{ public_path(" fonts/Inter-Regular.ttf") }}') format('truetype');
+      src: url('{{ public_path(" fonts/NeoSansPro-Black.ttf") }}') format('truetype');
 
       /* Black */
+
+    }
+
+    @font-face {
+      font-family: "Neo Sans Pro Black";
+      src: local("Neo Sans Pro Black"), url(" fonts/NeoSansPro-Black.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
 
     }
 
@@ -42,7 +60,7 @@
     }
 
     body {
-      font-family: 'Roboto', sans-serif !important;
+      font-family: 'Neo Sans Pro', sans-serif !important;
       margin: 0;
       padding: 0;
       display: flex;
@@ -113,8 +131,8 @@
     }
 
     .cargo {
-      font-family: 'Roboto', sans-serif;
-
+      font-family: 'Neo Sans Pro Medium', sans-serif;
+      word-wrap: break-word;
       margin-top: 0px;
       font-size: 12px;
       color: gray;
@@ -146,7 +164,7 @@
       z-index: 10;
       margin-top: 306px;
       margin-bottom: 600px;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Neo Sans Pro Regular', sans-serif;
 
     }
 

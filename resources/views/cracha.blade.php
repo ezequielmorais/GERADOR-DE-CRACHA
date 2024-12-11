@@ -1,246 +1,11 @@
 @extends('templates.template')
-@section('title', 'welcome')
+@section('title', 'Sistema Fibra')
 @section('Conteudo')
 {{-- tested2eze --}}
 <link
   href="https://fonts.googleapis.com/css2?family=Danfo&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
   rel="stylesheet">
-<style>
-  @font-face {
-    font-family: 'Neo Sans Pro Black';
-    src: url('{{ asset("/Fonts/NeoSansProBlack.OTF") }}') format('opentype');
-
-    /* Black */
-
-  }
-
-  @font-face {
-    font-family: 'Neo Sans Pro';
-    src: url('/Fonts/NeoSansProMedium.OTF') format('opentype');
-
-    /* Medium */
-
-  }
-
-  @font-face {
-    font-family: 'Neo Sans Pro';
-    src: url('/Fonts/NeoSansProRegular.OTF') format('opentype');
-
-    /* Regular */
-
-  }
-
-  .drop-area {
-    width: 40px;
-    height: 80px;
-    border: 2px solid black;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #1c56a8;
-    font-size: 5px;
-    cursor: pointer;
-    text-align: center;
-    position: relative;
-
-  }
-
-
-  .drop-area,
-  .image-preview {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    border: 2px solid #245ca8;
-    height: 120px;
-  }
-
-  .drop-area.dragover {
-    background-color: #f0f8f0;
-  }
-
-  .drop-area img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 8px;
-  }
-
-  .image-preview {
-    display: none;
-    margin-top: 70px;
-    text-align: center;
-
-  }
-
-  .form-container {
-    margin-top: 20px;
-    text-align: center;
-    display: none;
-  }
-
-  .centralizar-imagem {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 226px;
-  }
-
-  .card-container {
-    width: 360px;
-    margin: 20px auto;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 0px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    background-color: transparent;
-  }
-
-  .card-header {
-    padding: 0px;
-    background-color: transparent;
-    color: white;
-    font-size: 14px;
-    text-align: center;
-  }
-
-  .card-body {
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .card-body img {
-    max-width: 100%;
-    border-radius: 0px;
-  }
-
-  .usuario {
-    color: #1c56a8;
-    font-weight: 900;
-    font-family: 'Inter', sans-serif;
-
-    padding: 5px;
-    margin-bottom: 0px;
-    font-size: 15px;
-  }
-
-  .cargo {
-    font-family: 'Inter', sans-serif;
-
-    margin-top: 0px;
-    font-size: 12px;
-    font-weight: 700;
-    color: gray;
-  }
-
-  .usuario,
-  .cargo {
-    margin-bottom: 0px;
-
-  }
-
-  .footer-img {
-    width: 226px;
-    height: 40px;
-    margin-top: 20px;
-  }
-
-
-  .crachas-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
-
-  /* Nova classe para aumentar a margem do preview da imagem */
-  .preview-image-second-cracha {
-    margin-top: 10px;
-
-  }
-
-  .footer-img1 {
-    width: 226px;
-    height: 40px;
-    margin-top: 57px;
-  }
-
-  .titulo {
-    font-size: 16px;
-    font-weight: bold;
-    color: #1c56a8;
-    margin-top: 30px;
-    margin-bottom: 2px;
-  }
-
-  .drop-area1 {
-    width: 90px;
-    height: 90px;
-    border: 2px solid #245ca8;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #245ca8;
-    font-size: 5px;
-    cursor: pointer;
-    text-align: center;
-    position: relative;
-    margin-top: 50px;
-    margin-bottom: -6px;
-  }
-
-  .card-body {
-    position: relative;
-  }
-
-  .matricula {
-    position: absolute;
-    top: 14px;
-    right: 80px;
-    font-size: 12px;
-    color: #ffffff;
-    background-color: transparent;
-    padding: 5px;
-    z-index: 10;
-    margin-top: 312px;
-    margin-bottom: 600px;
-  }
-
-  .footer-img {
-    position: relative;
-    z-index: 1;
-
-  }
-
-  .cod-matricula {
-    font-weight: 700;
-    top: 10px;
-    right: 100px;
-  }
-
-  .drop-area1 img {
-    margin-top: 2px;
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-
-  }
-
-  .botao {
-    background-color: #0E4194;
-    margin-left: 128px;
-    margin-bottom: 20px;
-    font-family: "inter", Courier, monospace;
-  }
-</style>
+<link rel="stylesheet" href="{{ asset('css/cracha.css') }}">
 
 <body>
 
@@ -248,7 +13,7 @@
     <!-- Crachá 1 -->
     <div class="card-container">
       <div class="card-header">
-        <p>teste</p>
+
       </div>
       <div class="card-body" style="position: relative;">
         <img src="img/CRACHA1.png" alt="Imagem do Cracha" class="centralizar-imagem">
@@ -276,7 +41,7 @@
         <p class="usuario">{{ $nome }}</p>
         <p class="cargo">{{ $cargo }}</p>
 
-        <img class="footer-img" src="img/CRACHA-MATRICULA.png" alt="footer">
+        <img class="footer-img" src="img/CRACHA-MATRICULA.PNG" alt="footer">
 
         <!-- Tag Matricula que ficará sobre a imagem -->
         <p class="matricula">
@@ -289,7 +54,7 @@
 
       </div>
       <div class="card-body">
-        <img src="img/CRACHA-VERSO.png" alt="Imagem do Cracha" class="centralizar-imagem">
+        <img src="img/CRACHA-VERSO.PNG" alt="Imagem do Cracha" class="centralizar-imagem">
 
         <div class="drop-area1" id="drop-area">
           <img id="preview-image" src="{{ $qrcodeUrl }}" alt="QR Code">
@@ -307,7 +72,7 @@
           </form>
         </div>
 
-        <img class="footer-img1" src="img/CRACHA-VERSO-BAIXO.png" alt="footer">
+        <img class="footer-img1" src="img/CRACHA-VERSO-BAIXO.PNG" alt="footer">
       </div>
       <form method="POST" action="{{ route('gerarPdf') }}" id="form-gerar-pdf">
         @csrf

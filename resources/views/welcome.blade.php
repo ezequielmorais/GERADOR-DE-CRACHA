@@ -1,124 +1,16 @@
 @extends('templates.template')
 
-@section('title', 'Gerar QR Code e PDF')
+@section('title', 'Sistema Fibra')
 
 @section('Conteudo')
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0px;
-    background-color: #f9f9f9;
-    padding: 0;
-  }
 
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-    margin-top: 50px;
-  }
-
-  .form-container {
-    max-width: 600px;
-    margin: 70px auto;
-    height: 650px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  label {
-    font-size: 14px;
-    color: #555;
-  }
-
-  input[type="text"],
-  input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 4px;
-    border: 1px solid black;
-    font-size: 14px;
-    background-color: #f9f9f9;
-    color: black;
-
-  }
-
-  input[type="file"] {
-    padding: 6px;
-
-  }
-
-  .button-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #0E4194;
-    font-family: 'inter';
-    font-weight: 600;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-    margin-top: 10px;
-  }
-
-  button:hover {
-    background-color: #0E4194;
-  }
-
-  .casa {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 4px;
-    border: 1px solid black;
-    font-size: 14px;
-    background-color: #f9f9f9;
-  }
-
-  input[type="text"],
-  input[type="file"],
-  .select {
-    margin: -1px 0;
-  }
-
-  .qr-code {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-    height: 80px;
-    border: 2px solid #245ca8;
-    border-radius: 8px;
-  }
-
-  input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 4px;
-    border: 1px solid black;
-    font-size: 14px;
-    background-color: #f9f9f9;
-    color: black;
-    margin-bottom: -9px;
-  }
-</style>
+<head>
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+</head>
 
 <div class="form-container">
-  <h2>Gerar QR Code e Imprimir PDF</h2>
+
+  <h2 class="titulo">Gerar QR Code e Imprimir PDF</h2>
   <form id="form" action="{{ route('preview') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
