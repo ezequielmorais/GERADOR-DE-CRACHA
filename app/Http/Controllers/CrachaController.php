@@ -5,8 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Storage;
+<<<<<<< Updated upstream
 use Intervention\Image\Facades\Image;
 
+=======
+use Dompdf\Dompdf;
+use Dompdf\Options;
+>>>>>>> Stashed changes
 
 class CrachaController extends Controller
 
@@ -73,22 +78,28 @@ class CrachaController extends Controller
         // Se o QR Code estiver em um caminho local, converta para base64
         $qrcodeImage = file_get_contents($qrcodeUrl);
         $qrcodeBase64 = base64_encode($qrcodeImage);
+<<<<<<< Updated upstream
         $tipo =  explode('.', $exploded[1]);
 
 
         
+=======
+>>>>>>> Stashed changes
 
         $pdf = PDF::loadView('pdf', [
             'nome' => $nome,
             'cargo' => $cargo,
             'matricula' => $matricula,
             'casa' => $casa,
-            'imagePath' => $exploded[1], // Caminho da imagem para exibição
+            'imagePath' => $exploded[1],
             'qrcodeUrl' => $qrcodeBase64,
+<<<<<<< Updated upstream
             'tipo' => $tipo[1],
              // URL do QR Code em base64
+=======
+>>>>>>> Stashed changes
         ]);
-
-        return $pdf->download($nome . '_Cracha.pdf');
+      
+return $pdf->stream($nome . '_Cracha.pdf');
     }
 }

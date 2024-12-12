@@ -97,14 +97,24 @@
   .usuario {
     color: #1c56a8;
     font-weight: 900;
+<<<<<<< Updated upstream
     font-family: "inter", Courier, monospace;
+=======
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+>>>>>>> Stashed changes
     padding: 5px;
     margin-bottom: 0px;
     font-size: 15px;
   }
 
   .cargo {
+<<<<<<< Updated upstream
     font-family: "inter", Courier, monospace;
+=======
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+>>>>>>> Stashed changes
     margin-top: 0px;
     font-size: 12px;
     font-weight: 700;
@@ -242,7 +252,7 @@
           @if($imagePath)
           <img id="preview-image" src="{{ asset($imagePath) }}" alt="Imagem carregada">
           @else
-          <img id="preview-image" src="img/upload.png" alt="Pré-visualização">
+          <img id="preview-image" src="img/upload.PNG" alt="Pré-visualização">
           @endif
         </div>
 
@@ -252,7 +262,11 @@
         <p class="usuario">{{ $nome }}</p>
         <p class="cargo">{{ $cargo }}</p>
 
+<<<<<<< Updated upstream
         <img class="footer-img" src="img/CRACHA-BAIXO.png" alt="footer">
+=======
+        <img class="footer-img" src="img/CRACHA-MATRICULA.PNG" alt="footer">
+>>>>>>> Stashed changes
 
         <!-- Tag Matricula que ficará sobre a imagem -->
         <p class="matricula"> <span class="cod-matricula">{{ $matricula }}</span></p>
@@ -263,7 +277,7 @@
 
       </div>
       <div class="card-body">
-        <img src="img/CRACHA-VERSO.png" alt="Imagem do Cracha" class="centralizar-imagem">
+        <img src="img/CRACHA-VERSO.PNG" alt="Imagem do Cracha" class="centralizar-imagem">
 
         <div class="drop-area1" id="drop-area">
           <img id="preview-image" src="{{ $qrcodeUrl }}" alt="QR Code">
@@ -281,7 +295,7 @@
           </form>
         </div>
 
-        <img class="footer-img1" src="img/CRACHA-VERSO-BAIXO.png" alt="footer">
+        <img class="footer-img1" src="img/CRACHA-VERSO-BAIXO.PNG" alt="footer">
       </div>
     </div>
   </div>

@@ -43,7 +43,7 @@
     font-size: 14px;
     background-color: #f9f9f9;
     color: black;
-
+    text-transform: uppercase;
   }
 
   input[type="file"] {
