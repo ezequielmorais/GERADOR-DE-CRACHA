@@ -40,15 +40,35 @@
   </div>
 
   <script>
-    const togglePassword = document.getElementById('togglePassword');
-    const passwordField = document.getElementById('password');
+  const togglePassword = document.getElementById('togglePassword');
+  const passwordField = document.getElementById('password');
 
-    togglePassword.addEventListener('click', () => {
-      const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-      passwordField.setAttribute('type', type);
-      togglePassword.classList.toggle('fa-eye-slash');
-    });
+  togglePassword.addEventListener('click', () => {
+    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordField.setAttribute('type', type);
+    togglePassword.classList.toggle('fa-eye-slash');
+  });
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+  @if (session()->has('login_failed'))
+  <script>
+  Swal.fire({
+    icon: 'error',
+    title: 'Erro de Login',
+    text: "{{ session('login_failed') }}",
+    timer: 3000,
+    showConfirmButton: false,
+    toast: true,
+    position: 'top',
+    timerProgressBar: true,
+    background: "#0E4194",
+    color: "#fff"
+  });
+  </script>
+  @endif
+
 </body>
 
 </html>
