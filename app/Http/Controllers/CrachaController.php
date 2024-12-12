@@ -82,8 +82,14 @@ class CrachaController extends Controller
         $tipo =  explode('.', $exploded[1]);
 
 
+<<<<<<< Updated upstream
         
 =======
+>>>>>>> Stashed changes
+=======
+
+
+
 >>>>>>> Stashed changes
 
         $pdf = PDF::loadView('pdf', [
@@ -94,6 +100,7 @@ class CrachaController extends Controller
             'imagePath' => $exploded[1],
             'qrcodeUrl' => $qrcodeBase64,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             'tipo' => $tipo[1],
              // URL do QR Code em base64
 =======
@@ -101,5 +108,12 @@ class CrachaController extends Controller
         ]);
       
 return $pdf->stream($nome . '_Cracha.pdf');
+=======
+            'tipo' => $tipo[1], // URL do QR Code em base64
+            
+        ]);
+      
+        return $pdf->download($nome . '_Cracha.pdf');
+>>>>>>> Stashed changes
     }
 }
