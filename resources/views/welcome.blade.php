@@ -8,7 +8,7 @@
 <html lang="en">
 
 <head>
-  <title>Login V1</title>
+  <title>Gerar QR Code e Imprimir PDF</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

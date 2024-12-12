@@ -18,49 +18,15 @@
     }
 
     @font-face {
-      font-family: 'NeoSansPro-Black';
-      src: url("../fonts/NeoSansPro-Black.ttf");
-    }
-
-    @font-face {
-      font-family: 'NeoSansPro-Black';
-      src: url('{{ public_path("fonts/NeoSansPro-Black.ttf") }}') format('truetype');
-    }
-
-    @font-face {
-      font-family: 'Neo Sans Pro Black';
-      src: url('{{ public_path(" fonts/NeoSansPro-Black.ttf") }}') format('truetype');
-
-      /* Black */
-
-    }
-
-    @font-face {
-      font-family: "Neo Sans Pro Black";
-      src: local("Neo Sans Pro Black"), url(" fonts/NeoSansPro-Black.ttf") format("truetype");
+      font-family: 'NeoSansProBlack';
+      src: url('{{ public_path("Fonts/NeoSansProBlack.ttf") }}') format('truetype');
       font-weight: normal;
       font-style: normal;
-
     }
 
-    @font-face {
-      font-family: 'Neo Sans Pro';
-      src: url('/Fonts/NeoSansProMedium.OTF') format('opentype');
-
-      /* Medium */
-
-    }
-
-    @font-face {
-      font-family: 'Neo Sans Pro';
-      src: url('/Fonts/NeoSansProRegular.OTF') format('opentype');
-
-      /* Regular */
-
-    }
 
     body {
-      font-family: 'Neo Sans Pro', sans-serif !important;
+      font-family: 'Neo Sans Pro', sans-serif;
       margin: 0;
       padding: 0;
       display: flex;
@@ -121,7 +87,7 @@
     .usuario {
       color: #1c56a8;
       font-weight: 900;
-      font-family: 'Neo Sans Pro Black', sans-serif;
+      font-family: 'Neo Sans Pro', sans-serif;
       padding: 5px;
       margin-bottom: 0px;
       font-size: 15px;
@@ -131,7 +97,7 @@
     }
 
     .cargo {
-      font-family: 'Neo Sans Pro Medium', sans-serif;
+      font-family: 'Neo Sans Pro', sans-serif;
       word-wrap: break-word;
       margin-top: 0px;
       font-size: 12px;

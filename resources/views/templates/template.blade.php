@@ -20,109 +20,13 @@
     rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
   <title>Gerar QR Code e Imprimir PDF</title>
+  <link rel="stylesheet" type="img/icone-sistema.ico" href="{{ asset('img/icone-sistema.ico') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/template.css') }}">
 </head>
-<style>
-body {
-  margin: 0;
-  padding: 0;
-}
 
-.header {
-  background-color: #0E4194;
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-.logo-container {
-  width: 120px;
-  height: auto;
-  overflow: hidden;
-  margin-left: 150px;
-
-}
-
-.logo-container img {
-  width: 70px;
-  height: auto;
-
-}
-
-.logout-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-}
-
-.logout-container button {
-  margin-top: 5px;
-
-}
-
-
-.logout-container img {
-  width: 50px;
-  height: auto;
-  margin-bottom: -11px;
-  margin-left: -300px;
-  margin-top: 10px;
-}
-
-
-.logout-container button {
-  background-color: transparent;
-  color: white;
-  border: none;
-  font-weight: bold;
-  font-family: "inter", sans-serif;
-  padding: 5px 10px;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: -20px;
-  margin-left: -300px;
-  /* Move o botão para a esquerda */
-}
-
-.logout-container button:hover {
-  background-color: transparent;
-  font-weight: bold;
-}
-
-.titulo-header {
-  font-family: "inter", sans-serif;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  margin-left: 900px;
-  margin-top: 3px;
-}
-
-.back-button {
-  position: absolute;
-  left: 35px;
-  top: 20px;
-  background-color: #0E4194;
-  color: white;
-  padding: 6px 13px;
-  text-decoration: none;
-  border-radius: 5px;
-  z-index: 1000;
-  border: solid 1px white;
-}
-
-.back-button span {
-  font-size: 15px;
-}
-
-.back-button:hover {
-  background-color: #1988ca;
-  color: white;
-}
-</style>
 
 <body>
 

@@ -20,7 +20,7 @@
 }
 
 .drop-area {
-    width: 90px;
+    width: 85px;
     height: 113px;
     border: 2px solid black;
     border-radius: 5px;
@@ -32,17 +32,17 @@
     cursor: pointer;
     text-align: center;
     position: relative;
+    margin-top: 15px;
+    border: 2px solid #245ca8;
 }
 
-.drop-area,
 .image-preview {
     margin-top: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90px;
+    width: 50px;
     height: 113px;
-    border: 2px solid #245ca8;
 }
 
 .drop-area.dragover {
@@ -172,7 +172,7 @@
 .drop-area1 {
     width: 90px;
     height: 90px;
-    border: 2px solid #245ca8;
+    border: 1px solid #245ca8;
     border-radius: 5px;
     display: flex;
     justify-content: center;
