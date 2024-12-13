@@ -1,23 +1,4 @@
-@font-face {
-    font-family: "Neo Sans Pro Black";
-    src: url('{{ asset("/Fonts/NeoSansProBlack.OTF") }}') format("opentype");
-
-    /* Black */
-}
-
-@font-face {
-    font-family: "Neo Sans Pro medium";
-    src: url("/Fonts/NeoSansProMedium.OTF") format("opentype");
-
-    /* Medium */
-}
-
-@font-face {
-    font-family: "Neo Sans Pro Regular";
-    src: url("/Fonts/NeoSansProUltIt.OTF") format("opentype");
-
-    /* Regular */
-}
+@import url("./css/font-neosanspro.css"); /* Caminho relativo */
 
 .drop-area {
     width: 85px;

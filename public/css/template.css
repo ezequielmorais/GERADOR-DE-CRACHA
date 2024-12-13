@@ -155,3 +155,34 @@ body {
         font-size: 1.5rem;
     }
 }
+@media screen and (max-width: 1152px) and (max-height: 864px) {
+    .titulo-header {
+        font-size: 1.2rem;
+        margin-left: 150px;
+        margin-top: 1-0px;
+    }
+
+    .logout-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .bi-list {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width: 1611px) and (max-height: 914px) {
+    .titulo-header {
+        font-size: 1.2rem;
+        margin-left: 80px;
+    }
+
+    .logout-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .bi-list {
+        font-size: 1.5rem;
+    }
+}

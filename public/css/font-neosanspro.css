@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "NeoSansPro";
+    src: url("../fonts/NeoSansProBlack.ttf") format("truetype"),
+        url("../fonts/NeoSansProBlackIt.OTF") format("opentype"),
+        url("../fonts/NeoSansProBold.OTF") format("opentype"),
+        url("../fonts/NeoSansProBoldIt.OTF") format("opentype"),
+        url("../fonts/NeoSansProItalic.OTF") format("opentype"),
+        url("../fonts/NeoSansProLight.OTF") format("opentype"),
+        url("../fonts/NeoSansProLightIt.OTF") format("opentype"),
+        url("../fonts/NeoSansProMedIt.OTF") format("opentype"),
+        url("../fonts/NeoSansProMedium.OTF") format("opentype"),
+        url("../fonts/NeoSansProRegular.OTF") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}

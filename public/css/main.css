@@ -613,3 +613,10 @@ iframe {
         margin-top: -110px;
     }
 }
+@media screen and (max-width: 1152px) and (max-height: 864px) {
+    .wrap-login100 {
+        width: 920px;
+        height: 720px;
+        margin-top: -80px;
+    }
+}
