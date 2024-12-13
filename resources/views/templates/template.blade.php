@@ -28,6 +28,8 @@
 </head>
 
 
+
+
 <body>
 
   <header class="header">
@@ -35,7 +37,7 @@
     @if (session('user'))
     <p class="titulo-header">Bem-vindo, {{ session('user')['nome'] }}!</p>
     @endif
-    <i class="bi bi-list"></i>
+
     <form method="POST" action="{{ route('logout') }}" class="logout-form" id="logout-form">
       @csrf
       <div class="logout-container">
