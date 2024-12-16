@@ -96,11 +96,12 @@
     padding: 5px;
     margin-bottom: 0px;
     font-size: 15px;
+    text-transform: uppercase;
 }
 
 .cargo {
     font-family: "Neo Sans Pro Medium", sans-serif;
-
+    text-transform: uppercase;
     margin-top: 0px;
     font-size: 12px;
     font-weight: 700;

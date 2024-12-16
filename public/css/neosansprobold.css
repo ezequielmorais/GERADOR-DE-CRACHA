@@ -1,0 +1,5 @@
+@font-face {
+    font-family: "NeoSansProBold";
+    src: url("{{ public_path('fonts/NeoSansProBold.ttf') }}") format("truetype");
+    font-weight: normal;
+}

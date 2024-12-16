@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Neo Sans Pro Medium";
-    src: url("{{ public_path('fonts/neosanspro/Neo Sans Pro Medium.ttf') }}")
+    src: url("{{ public_path('fonts/Neo Sans Pro Medium.ttf') }}")
         format("truetype");
     font-weight: bold;
 }

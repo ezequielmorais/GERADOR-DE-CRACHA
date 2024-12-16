@@ -1,0 +1,5 @@
+@font-face {
+    font-family: "NeoSansProRegular";
+    src: url("{{ public_path('fonts/NeoSansProRegular.ttf') }}")
+        format("truetype");
+}

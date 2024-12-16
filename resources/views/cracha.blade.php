@@ -9,7 +9,13 @@
 <link rel="stylesheet" href="{{ asset('css/font-neosanspro.css') }}">
 
 <body>
-
+  <style>
+    @font-face {
+      font-family: "NeoSansProRegular";
+      src: url("{{ public_path('fonts/neosanspro/NeoSansProRegular.ttf') }}") format("truetype");
+      font-weight: bold;
+    }
+  </style>
   <div class="crachas-container">
     <!-- Crachá 1 -->
     <div class="card-container">
@@ -45,7 +51,7 @@
         <img class="footer-img" src="img/CRACHA-MATRICULA.PNG" alt="footer">
 
         <!-- Tag Matricula que ficará sobre a imagem -->
-        <p class="matricula">
+        <p class="matricula" sy>
           Matrícula<span class="cod-matricula"> {{ $matricula }}
           </span></p>
       </div>

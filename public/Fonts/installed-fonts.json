@@ -1,5 +1,11 @@
 {
-    "neosansproblack": {
-        "normal": "neosansproblack_normal_b4f1b625ab9dabd9ee7df14626e19390"
+    "neosansprobold": {
+        "bold": "neosansprobold_bold_cefa28bc6b1ac42b8b73d9a9d315745d"
+    },
+    "neo sans pro medium": {
+        "bold": "neo_sans_pro_medium_bold_f2869bd128f78946d4e82fe569e18455"
+    },
+    "neosansproregular": {
+        "bold": "neosansproregular_bold_7fea5f69e58ce6b00975eb354cfedcd6"
     }
 }

@@ -6,10 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
-  <link href="https://fonts.cdnfonts.com/css/neo-sans-pro" rel="stylesheet">
+
   <link
     href="https://fonts.googleapis.com/css2?family=Danfo&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
+
   <title>Sistema Fibra</title>
   <style>
     @page {
@@ -18,15 +19,31 @@
     }
 
     @font-face {
-      font-family: 'NeoSansProBlack';
-      src: url('{{ public_path("Fonts/NeoSansProBlack.ttf") }}') format('truetype');
-      font-weight: normal;
-      font-style: normal;
+      font-family: "NeoSansProBold";
+      src: url("{{ public_path('fonts/neosanspro/NeoSansProBold.ttf') }}") format("truetype");
+      font-weight: bold;
+    }
+
+    @font-face {
+      font-family: "Neo Sans Pro Medium";
+      src: url("{{ public_path('fonts/neosanspro/Neo Sans Pro Medium.ttf') }}") format("truetype");
+      font-weight: bold;
     }
 
 
+    @font-face {
+      font-family: "NeoSansProRegular";
+      src: url("{{ public_path('fonts/neosanspro/NeoSansProRegular.ttf') }}") format("truetype");
+      font-weight: bold;
+    }
+
+
+
+
+
+
     body {
-      font-family: 'Neo Sans Pro', sans-serif;
+      font-family: 'NeoSansProRegular' !important;
       margin: 0;
       padding: 0;
       display: flex;
@@ -35,7 +52,6 @@
     }
 
     .cracha-container {
-
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 1fr 1fr;
@@ -86,24 +102,25 @@
 
     .usuario {
       color: #1c56a8;
-      font-weight: 900;
-      font-family: 'Neo Sans Pro', sans-serif;
+      font-weight: 1000;
+      font-family: 'NeoSansProbold';
       padding: 5px;
-      margin-bottom: 0px;
+      margin-bottom: -18px;
       font-size: 15px;
-      margin-top: 5px;
-
+      margin-top: 2px;
+      text-transform: uppercase;
 
     }
 
-    .cargo {
-      font-family: 'Neo Sans Pro', sans-serif;
-      word-wrap: break-word;
-      margin-top: 0px;
-      font-size: 12px;
-      color: gray;
-      font-weight: 700;
 
+    .cargo {
+      font-family: 'Neo Sans Pro Medium';
+      word-wrap: break-word;
+      margin-top: 15px;
+      font-size: 12px;
+      color: #545c5c;
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
     .card-body {
@@ -120,25 +137,27 @@
     }
 
     .matricula {
+      font-family: 'NeoSansProRegular', sans-serif !important;
+    }
+
+    .matricula {
+      font-family: 'NeoSansProRegular', sans-serif !important;
+      color: #ffffff;
+      font-size: 13px;
+      background-color: transparent;
+      padding: 5px;
       position: absolute;
       top: -18px;
       right: 6px;
-      font-size: 13px;
-      color: #ffffff;
-      background-color: transparent;
-      padding: 5px;
       z-index: 10;
-      margin-top: 306px;
+      margin-top: 303px;
       margin-bottom: 600px;
-      font-family: 'Neo Sans Pro Regular', sans-serif;
-
     }
 
     .cod-matricula {
+      font-family: 'NeoSansProBold', sans-serif !important;
       font-weight: 700;
-      font-family: 'Neo Sans Pro black', sans-serif;
     }
-
 
     .crachaHeader {
       width: 100%;
@@ -191,9 +210,9 @@
         src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/CRACHA-MATRICULA.png'))) }}"
         alt="footer">
 
-      <p class="matricula">
+      <h1 class="matricula" style="font-family:'NeoSansProRegular '">
         Matrícula<span class="cod-matricula"> {{ $matricula }}
-        </span></p>
+        </span></h1>
     </div>
 
     <!-- Crachá 2 -->

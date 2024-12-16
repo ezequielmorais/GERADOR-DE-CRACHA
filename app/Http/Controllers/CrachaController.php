@@ -71,14 +71,14 @@ class CrachaController extends Controller
         // Se o QR Code estiver em um caminho local, converta para base64
         $qrcodeImage = file_get_contents($qrcodeUrl);
         $qrcodeBase64 = base64_encode($qrcodeImage);
-        $tipo =  explode('.', $exploded[1]);
+
 
 
 
         //cleiton e felipe muito chatos
 
 
-        $fileSizeKB = filesize($exploded[1]) / 1024;
+
 
 
 
@@ -89,10 +89,13 @@ class CrachaController extends Controller
             'casa' => $casa,
             'imagePath' => $exploded[1], // Caminho da imagem para exibição
             'qrcodeUrl' => $qrcodeBase64,
-            'tipo' => $tipo[1], // URL do QR Code em base64
-            'tamanho' => $fileSizeKB,
+
+
         ]);
         $pdf->getDomPDF()->getOptions()->set('fontDir', public_path('Fonts'));
+        $pdf->getDomPDF()->getOptions()->set('defaultFont', 'NeoSansProBold');
+        $pdf->getDomPDF()->getOptions()->set('defaultFont', 'Neo Sans Pro Medium');
+        $pdf->getDomPDF()->getOptions()->set('defaultFont', 'NeoSansProRegular');
         $pdf->getDomPDF()->getOptions()->set('defaultFont', 'NeoSansProBlack');
         return $pdf->download($nome . '_Cracha.pdf');
     }
